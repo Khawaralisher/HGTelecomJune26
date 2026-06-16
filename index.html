@@ -29,11 +29,15 @@
 
   <!-- ============ HERO ============ -->
   <section style="position:relative; overflow:hidden; background:#fff;">
-    <div class="hg-pan" style="position:absolute; top:0; bottom:0; left:0; width:115%; background:linear-gradient(110deg, var(--green-50) 0%, #ffffff 56%); will-change:transform;">
+    <!-- Background slides (cross-fade, advance with each heading) -->
+    <div class="hg-pan" style="position:absolute; top:0; bottom:0; left:0; width:115%; background:var(--green-50); will-change:transform;">
+      <img src="assets/img/header-slide-1.webp" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:{{ slide0Opacity }}; transition:opacity 1.2s var(--ease-emphasis);">
+      <img src="assets/img/header-slide-2.webp" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:{{ slide1Opacity }}; transition:opacity 1.2s var(--ease-emphasis);">
       <div style="position:absolute; inset:0; background-image:radial-gradient(circle, rgba(0,168,80,0.13) 1.5px, transparent 1.6px); background-size:30px 30px;"></div>
-      <img src="assets/logo/hg-monogram-green.png" alt="" style="position:absolute; right:7%; top:50%; transform:translateY(-50%); width:min(440px,40vw); opacity:0.10;">
+      <!-- Animated HG logo, kept above the slides -->
+      <img src="assets/logo/hg-monogram-green.png" alt="" style="position:absolute; right:7%; top:50%; transform:translateY(-50%); width:min(440px,40vw); opacity:0.16;">
     </div>
-    <div style="position:absolute; inset:0; background:linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,0.94) 42%, rgba(255,255,255,0.55) 70%, rgba(255,255,255,0.12) 100%);"></div>
+    <div style="position:absolute; inset:0; background:linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,0.92) 42%, rgba(255,255,255,0.50) 70%, rgba(255,255,255,0.10) 100%);"></div>
     <div style="position:absolute; left:0; right:0; bottom:0; height:110px; background:linear-gradient(to bottom, rgba(255,255,255,0), #ffffff);"></div>
 
     <div style="position:relative; max-width:1200px; margin:0 auto; padding:clamp(60px,8vw,104px) 24px clamp(68px,8vw,108px);">
@@ -136,7 +140,7 @@
         </div>
         <a href="About.dc.html" style="display:inline-flex; align-items:center; gap:10px; margin-top:30px; height:50px; padding:0 26px; border-radius:10px; background:var(--color-brand); color:#fff; font-family:var(--font-heading); font-weight:600; font-size:16px; text-decoration:none; box-shadow:var(--shadow-xs); transition:background var(--dur-fast) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);" style-hover="{{ btnPrimaryHover }}">More about us <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
       </div>
-      <dc-import name="ImagePlaceholder" label="Team in the network operations centre" aspect="4/3" tone="green" hint-size="100%,360px"></dc-import>
+      <img src="assets/img/noc-team.webp" alt="Team in the network operations centre" style="display:block; width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:16px;">
     </div>
   </section>
 
@@ -186,7 +190,7 @@
     <div style="max-width:1200px; margin:0 auto; padding:clamp(64px,8vw,96px) 24px;">
       <div style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:24px; padding:clamp(28px,4vw,48px); box-shadow:var(--shadow-sm); display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:clamp(32px,4vw,52px); align-items:center;">
         <div style="position:relative;">
-          <dc-import name="ImagePlaceholder" label="Fibre-optic network map of Pakistan" aspect="5/4" tone="green" hint-size="100%,360px"></dc-import>
+          <img src="assets/img/fibre-network-map.webp" alt="Fibre-optic network map of Pakistan" style="display:block; width:100%; aspect-ratio:5/4; object-fit:cover; border-radius:16px;">
           <div style="position:absolute; right:18px; bottom:18px; background:var(--surface-inverse); color:#fff; border-radius:16px; padding:16px 20px; box-shadow:var(--shadow-lg);">
             <div style="font-family:var(--font-heading); font-weight:800; font-size:30px; letter-spacing:-0.02em; line-height:1;">4000 KM</div>
             <div style="font-family:var(--font-body); font-size:12.5px; color:var(--text-on-dark-muted); margin-top:4px;">Optical fibre planned</div>
@@ -220,7 +224,7 @@
       <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:22px; margin-top:40px;">
 
         <div style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:16px; overflow:hidden; box-shadow:var(--shadow-sm); transition:transform var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);" style-hover="{{ cardHover }}">
-          <dc-import name="ImagePlaceholder" label="Voice & internet" aspect="16/10" radius="0px" hint-size="100%,170px"></dc-import>
+          <img src="assets/img/explore-voice-internet.webp" alt="Voice & internet" style="display:block; width:100%; aspect-ratio:16/10; object-fit:cover;">
           <div style="padding:24px;">
             <h3 style="font-family:var(--font-heading); font-weight:700; font-size:19px; color:var(--text-heading); margin:0;">Voice | Internet</h3>
             <p style="font-family:var(--font-body); font-size:14.5px; line-height:1.6; color:var(--text-body); margin:9px 0 0;">As one of the largest and fastest-growing fibre network infrastructure companies in Pakistan.</p>
@@ -228,7 +232,7 @@
         </div>
 
         <div style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:16px; overflow:hidden; box-shadow:var(--shadow-sm); transition:transform var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);" style-hover="{{ cardHover }}">
-          <dc-import name="ImagePlaceholder" label="Fibre optic" aspect="16/10" radius="0px" hint-size="100%,170px"></dc-import>
+          <img src="assets/img/fibre-network-map.webp" alt="Fibre optic" style="display:block; width:100%; aspect-ratio:16/10; object-fit:cover;">
           <div style="padding:24px;">
             <h3 style="font-family:var(--font-heading); font-weight:700; font-size:19px; color:var(--text-heading); margin:0;">Fibre Optic</h3>
             <p style="font-family:var(--font-body); font-size:14.5px; line-height:1.6; color:var(--text-body); margin:9px 0 0;">We deliver seamless, high-quality internet services by maintaining international connectivity.</p>
@@ -236,7 +240,7 @@
         </div>
 
         <div style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:16px; overflow:hidden; box-shadow:var(--shadow-sm); transition:transform var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);" style-hover="{{ cardHover }}">
-          <dc-import name="ImagePlaceholder" label="Data center" aspect="16/10" radius="0px" hint-size="100%,170px"></dc-import>
+          <img src="assets/img/data-center.webp" alt="Data center" style="display:block; width:100%; aspect-ratio:16/10; object-fit:cover;">
           <div style="padding:24px;">
             <h3 style="font-family:var(--font-heading); font-weight:700; font-size:19px; color:var(--text-heading); margin:0;">Data Center</h3>
             <p style="font-family:var(--font-body); font-size:14.5px; line-height:1.6; color:var(--text-body); margin:9px 0 0;">A state-of-the-art networked infrastructure facility offering multilayer protection for B2B clients.</p>
@@ -244,7 +248,7 @@
         </div>
 
         <div style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:16px; overflow:hidden; box-shadow:var(--shadow-sm); transition:transform var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);" style-hover="{{ cardHover }}">
-          <dc-import name="ImagePlaceholder" label="SMS gateway" aspect="16/10" radius="0px" hint-size="100%,170px"></dc-import>
+          <img src="assets/img/explore-sms-gateway.webp" alt="SMS gateway" style="display:block; width:100%; aspect-ratio:16/10; object-fit:cover;">
           <div style="padding:24px;">
             <h3 style="font-family:var(--font-heading); font-weight:700; font-size:19px; color:var(--text-heading); margin:0;">SMS Gateway</h3>
             <p style="font-family:var(--font-body); font-size:14.5px; line-height:1.6; color:var(--text-body); margin:9px 0 0;">Our SMS gateway lets your company receive and send accurate, personalised messages at scale.</p>
@@ -290,7 +294,7 @@
         <p style="font-family:var(--font-body); font-size:16px; line-height:1.7; color:var(--text-body); margin:14px 0 0;"><strong style="color:var(--text-heading); font-weight:600;">Customer-centric approach.</strong> We deliver tailor-made solutions, provide prompt support and maintain open lines of communication throughout our engagement.</p>
         <a href="Contact.dc.html" style="display:inline-flex; align-items:center; gap:10px; margin-top:28px; height:52px; padding:0 28px; border-radius:10px; background:var(--color-brand); color:#fff; font-family:var(--font-heading); font-weight:600; font-size:16px; text-decoration:none; box-shadow:var(--shadow-xs); transition:background var(--dur-fast) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);" style-hover="{{ btnPrimaryHover }}">Get started <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
       </div>
-      <dc-import name="ImagePlaceholder" label="Engineers delivering for a client" aspect="4/3" hint-size="100%,360px"></dc-import>
+      <img src="assets/img/engineers-client.webp" alt="Engineers delivering for a client" style="display:block; width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:16px;">
     </div>
   </section>
 
@@ -335,8 +339,11 @@ class Component extends DCLogic {
   renderVals() {
     const ph = this.phrases();
     const c = this.state.counts;
+    const bg = this.state.idx % 2;
     return {
       phrase: ph[this.state.idx],
+      slide0Opacity: bg === 0 ? 1 : 0,
+      slide1Opacity: bg === 1 ? 1 : 0,
       phraseStyle: {
         display: 'block', color: 'var(--color-brand)',
         opacity: this.state.vis ? 1 : 0,
