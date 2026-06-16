@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/hg-communication-design-system-e7295788-beb5-450f-a12b-213eea38d73b/styles.css">
+  <style>
+    *{ box-sizing:border-box; }
+    body{ margin:0; background:var(--surface-card); }
+    @keyframes hgPan{ from{ transform:translate3d(0,0,0); } to{ transform:translate3d(-7%,0,0); } }
+    @keyframes hgUp{ from{ opacity:0; transform:translateY(16px); } to{ opacity:1; transform:translateY(0); } }
+    .hg-pan{ animation:hgPan 26s ease-in-out infinite alternate; }
+    .hg-up{ animation:hgUp .7s var(--ease-emphasis) both; }
+    @media (prefers-reduced-motion: reduce){ .hg-pan,.hg-up{ animation:none !important; } }
+    .hg-tile{ position:relative; transition:border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard), color var(--dur-base) var(--ease-standard); }
+    .hg-tile::before{ content:''; position:absolute; inset:-12px; border-radius:20px; background:radial-gradient(120% 120% at 50% 50%, var(--tile-glow-color, #00A850) 0%, transparent 68%); opacity:0; filter:blur(8px); transition:opacity var(--dur-base) var(--ease-standard); z-index:-1; pointer-events:none; }
+    .hg-tile:hover::before{ opacity:var(--tile-glow-opacity, 0.9); }
+    .hg-tile:hover{ border-color:var(--color-brand); color:var(--text-heading); box-shadow:var(--shadow-md); }
+  </style>
+</helmet>
+
+<div style="font-family:var(--font-body); color:var(--text-body); background:var(--surface-card);">
+  <dc-import name="SiteHeader" active="home" hint-size="100%,74px"></dc-import>
+
+  <!-- ============ HERO ============ -->
+  <section style="position:relative; overflow:hidden; background:#fff;">
+    <div class="hg-pan" style="position:absolute; top:0; bottom:0; left:0; width:115%; background:linear-gradient(110deg, var(--green-50) 0%, #ffffff 56%); will-change:transform;">
+      <div style="position:absolute; inset:0; background-image:radial-gradient(circle, rgba(0,168,80,0.13) 1.5px, transparent 1.6px); background-size:30px 30px;"></div>
+      <img src="assets/logo/hg-monogram-green.png" alt="" style="position:absolute; right:7%; top:50%; transform:translateY(-50%); width:min(440px,40vw); opacity:0.10;">
+    </div>
+    <div style="position:absolute; inset:0; background:linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,0.94) 42%, rgba(255,255,255,0.55) 70%, rgba(255,255,255,0.12) 100%);"></div>
+    <div style="position:absolute; left:0; right:0; bottom:0; height:110px; background:linear-gradient(to bottom, rgba(255,255,255,0), #ffffff);"></div>
+
+    <div style="position:relative; max-width:1200px; margin:0 auto; padding:clamp(60px,8vw,104px) 24px clamp(68px,8vw,108px);">
+      <div class="hg-up" style="max-width:680px;">
+        <span style="display:inline-flex; align-items:center; gap:9px; padding:7px 14px; background:var(--color-brand-subtle); border-radius:999px; font-family:var(--font-heading); font-weight:600; font-size:11.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--color-brand-press);">
+          <span style="width:7px; height:7px; border-radius:50%; background:var(--color-brand);"></span>
+          Pakistan LDI License Holder
+        </span>
+        <h1 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(34px,5.4vw,62px); line-height:1.05; letter-spacing:-0.03em; color:var(--text-strong); margin:22px 0 0;">
+          Connecting Pakistan to <span style="{{ phraseStyle }}">{{ phrase }}</span>
+        </h1>
+        <p style="font-family:var(--font-body); font-size:clamp(16px,2vw,19px); line-height:1.65; color:var(--text-body); max-width:560px; margin:22px 0 0;">
+          HG Telecommunication provides international voice traffic termination to and from Pakistan, operating a worldwide carrier network on both SIP &amp; TDM — with high availability and 99.99% uptime.
+        </p>
+        <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:32px;">
+          <a href="Services.dc.html" style="display:inline-flex; align-items:center; gap:10px; height:54px; padding:0 30px; border-radius:10px; background:var(--color-brand); color:#fff; font-family:var(--font-heading); font-weight:600; font-size:17px; text-decoration:none; box-shadow:var(--shadow-xs); transition:background var(--dur-fast) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);" style-hover="{{ btnPrimaryHover }}">
+            Explore services
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </a>
+          <a href="Contact.dc.html" style="display:inline-flex; align-items:center; height:54px; padding:0 28px; border-radius:10px; border:1.5px solid var(--border-brand); color:var(--color-brand-press); background:transparent; font-family:var(--font-heading); font-weight:600; font-size:17px; text-decoration:none; transition:background var(--dur-fast) var(--ease-standard);" style-hover="{{ btnOutlineHover }}">
+            Talk to our team
+          </a>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-wrap:wrap; gap:clamp(28px,5vw,56px); margin-top:clamp(44px,6vw,64px);">
+        <div style="min-width:120px;">
+          <div style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px,3.4vw,34px); letter-spacing:-0.02em; color:var(--text-strong);">99.99%</div>
+          <div style="font-family:var(--font-body); font-size:14px; color:var(--text-muted); margin-top:3px;">Network uptime</div>
+        </div>
+        <div style="min-width:120px;">
+          <div style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px,3.4vw,34px); letter-spacing:-0.02em; color:var(--text-strong);">20-Year</div>
+          <div style="font-family:var(--font-body); font-size:14px; color:var(--text-muted); margin-top:3px;">LDI licence</div>
+        </div>
+        <div style="min-width:120px;">
+          <div style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px,3.4vw,34px); letter-spacing:-0.02em; color:var(--text-strong);">4000 KM</div>
+          <div style="font-family:var(--font-body); font-size:14px; color:var(--text-muted); margin-top:3px;">Planned fibre</div>
+        </div>
+        <div style="min-width:120px;">
+          <div style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px,3.4vw,34px); letter-spacing:-0.02em; color:var(--text-strong);">24&times;7</div>
+          <div style="font-family:var(--font-body); font-size:14px; color:var(--text-muted); margin-top:3px;">NOC support</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICE HIGHLIGHTS ============ -->
+  <section style="{{ partnersStyle }}">
+    <div style="max-width:1200px; margin:0 auto; padding:clamp(64px,8vw,96px) 24px;">
+      <div style="max-width:640px;">
+        <span style="font-family:var(--font-heading); font-weight:600; font-size:11.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--color-brand);">What we offer</span>
+        <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(28px,3.6vw,38px); letter-spacing:-0.02em; color:var(--text-heading); margin:12px 0 0; line-height:1.15;">Core services that keep Pakistan connected</h2>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:22px; margin-top:40px; position:relative; z-index:0;">
+
+        <div class="hg-tile" style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:16px; padding:30px; box-shadow:var(--shadow-sm);">
+          <span style="display:inline-flex; align-items:center; justify-content:center; width:52px; height:52px; border-radius:13px; background:var(--color-brand-subtle); color:var(--color-brand-press);">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3zM9 12l2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+          <h3 style="font-family:var(--font-heading); font-weight:700; font-size:21px; color:var(--text-heading); margin:20px 0 0;">LDI Services</h3>
+          <p style="font-family:var(--font-body); font-size:15px; line-height:1.65; color:var(--text-body); margin:10px 0 0;">Stay ahead with Pakistan&rsquo;s premier LDI operator — the future of advanced communication, redefining connectivity in Pakistan&rsquo;s digital landscape.</p>
+          <a href="Services.dc.html" style="display:inline-flex; align-items:center; gap:7px; margin-top:18px; font-family:var(--font-heading); font-weight:600; font-size:14.5px; color:var(--text-link); text-decoration:none; transition:gap var(--dur-base) var(--ease-standard);" style-hover="{{ arrowHover }}">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+        </div>
+
+        <div class="hg-tile" style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:16px; padding:30px; box-shadow:var(--shadow-sm);">
+          <span style="display:inline-flex; align-items:center; justify-content:center; width:52px; height:52px; border-radius:13px; background:var(--color-brand-subtle); color:var(--color-brand-press);">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M5 4h3l1.5 5-2 1.5a12 12 0 005 5l1.5-2 5 1.5v3a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+          <h3 style="font-family:var(--font-heading); font-weight:700; font-size:21px; color:var(--text-heading); margin:20px 0 0;">Voice | IPT Service</h3>
+          <p style="font-family:var(--font-body); font-size:15px; line-height:1.65; color:var(--text-body); margin:10px 0 0;">Long-distance voice &amp; internet backbone services, maintaining domestic long-haul and international connectivity around the clock.</p>
+          <a href="Services.dc.html" style="display:inline-flex; align-items:center; gap:7px; margin-top:18px; font-family:var(--font-heading); font-weight:600; font-size:14.5px; color:var(--text-link); text-decoration:none; transition:gap var(--dur-base) var(--ease-standard);" style-hover="{{ arrowHover }}">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+        </div>
+
+        <div class="hg-tile" style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:16px; padding:30px; box-shadow:var(--shadow-sm);">
+          <span style="display:inline-flex; align-items:center; justify-content:center; width:52px; height:52px; border-radius:13px; background:var(--color-brand-subtle); color:var(--color-brand-press);">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v6H4zM4 14h16v6H4zM7.5 7h.01M7.5 17h.01" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+          <h3 style="font-family:var(--font-heading); font-weight:700; font-size:21px; color:var(--text-heading); margin:20px 0 0;">Data Center</h3>
+          <p style="font-family:var(--font-body); font-size:15px; line-height:1.65; color:var(--text-body); margin:10px 0 0;">HG Data Center is a state-of-the-art networked infrastructure facility offering multilayer protection for B2B clients.</p>
+          <a href="Services.dc.html" style="display:inline-flex; align-items:center; gap:7px; margin-top:18px; font-family:var(--font-heading); font-weight:600; font-size:14.5px; color:var(--text-link); text-decoration:none; transition:gap var(--dur-base) var(--ease-standard);" style-hover="{{ arrowHover }}">Read more <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT INTRO ============ -->
+  <section style="background:var(--surface-card);">
+    <div style="max-width:1200px; margin:0 auto; padding:clamp(64px,8vw,96px) 24px; display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:clamp(36px,5vw,64px); align-items:center;">
+      <div>
+        <span style="font-family:var(--font-heading); font-weight:600; font-size:11.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--color-brand);">About HG</span>
+        <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(27px,3.5vw,37px); letter-spacing:-0.02em; color:var(--text-heading); margin:12px 0 0; line-height:1.18;">We provide the best voice, messaging &amp; corporate internet solutions</h2>
+        <p style="font-family:var(--font-body); font-size:16.5px; line-height:1.7; color:var(--text-body); margin:18px 0 0;">We have established ourselves as the industry leader in deploying state-of-the-art communication solutions across Pakistan and beyond.</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:14px 24px; margin-top:26px;">
+          <sc-for list="{{ aboutCaps }}" as="cap" hint-placeholder-count="6">
+            <div style="display:flex; align-items:center; gap:11px;">
+              <span style="display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px; border-radius:7px; background:var(--color-brand-subtle); color:var(--color-brand-press); flex:0 0 auto;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+              <span style="font-family:var(--font-body); font-size:15px; color:var(--text-heading);">{{ cap }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <a href="About.dc.html" style="display:inline-flex; align-items:center; gap:10px; margin-top:30px; height:50px; padding:0 26px; border-radius:10px; background:var(--color-brand); color:#fff; font-family:var(--font-heading); font-weight:600; font-size:16px; text-decoration:none; box-shadow:var(--shadow-xs); transition:background var(--dur-fast) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);" style-hover="{{ btnPrimaryHover }}">More about us <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+      </div>
+      <dc-import name="ImagePlaceholder" label="Team in the network operations centre" aspect="4/3" tone="green" hint-size="100%,360px"></dc-import>
+    </div>
+  </section>
+
+  <!-- ============ PARTNERS ============ -->
+  <section style="{{ partnersStyle }}">
+    <div style="max-width:1200px; margin:0 auto; padding:clamp(56px,7vw,84px) 24px;">
+      <div style="text-align:center; max-width:600px; margin:0 auto;">
+        <span style="font-family:var(--font-heading); font-weight:600; font-size:11.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--color-brand);">Trusted ecosystem</span>
+        <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(24px,3vw,32px); letter-spacing:-0.02em; color:var(--text-heading); margin:12px 0 0;">Our technology &amp; business partners</h2>
+        <p style="font-family:var(--font-body); font-size:14px; color:var(--text-muted); margin:10px 0 0;">Partner brand logos shown as placeholders &mdash; swap in official artwork.</p>
+      </div>
+
+      <div style="font-family:var(--font-heading); font-weight:700; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); margin:40px 0 16px;">Technology partners</div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:14px; position:relative; z-index:0;">
+        <sc-for list="{{ techPartners }}" as="p" hint-placeholder-count="7">
+          <div class="hg-tile" style="height:76px; display:flex; align-items:center; justify-content:center; background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:12px; font-family:var(--font-heading); font-weight:700; font-size:16px; letter-spacing:0.03em; color:var(--neutral-500);">{{ p }}</div>
+        </sc-for>
+      </div>
+
+      <div style="font-family:var(--font-heading); font-weight:700; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); margin:36px 0 16px;">Business partners</div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:14px; position:relative; z-index:0;">
+        <sc-for list="{{ bizPartners }}" as="p" hint-placeholder-count="8">
+          <div class="hg-tile" style="height:76px; display:flex; align-items:center; justify-content:center; background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:12px; font-family:var(--font-heading); font-weight:700; font-size:16px; letter-spacing:0.03em; color:var(--neutral-500);">{{ p }}</div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VISION & MISSION ============ -->
+  <section style="background:var(--surface-card);">
+    <div style="max-width:1200px; margin:0 auto; padding:clamp(64px,8vw,96px) 24px; display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:24px;">
+      <div style="background:var(--surface-page); border:1px solid var(--border-subtle); border-radius:18px; padding:clamp(28px,4vw,40px); position:relative; overflow:hidden;">
+        <span style="display:inline-flex; align-items:center; justify-content:center; width:54px; height:54px; border-radius:14px; background:var(--color-brand-subtle); color:var(--color-brand-press);"><svg width="27" height="27" viewBox="0 0 24 24" fill="none"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7zM12 15a3 3 0 100-6 3 3 0 000 6z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        <h3 style="font-family:var(--font-heading); font-weight:700; font-size:24px; color:var(--text-heading); margin:20px 0 0;">Our Vision</h3>
+        <p style="font-family:var(--font-body); font-size:16px; line-height:1.7; color:var(--text-body); margin:12px 0 0;">To focus on strengthening our brand perception by delivering a world-class customer experience at every touchpoint.</p>
+      </div>
+      <div style="background:var(--surface-page); border:1px solid var(--border-subtle); border-radius:18px; padding:clamp(28px,4vw,40px); position:relative; overflow:hidden;">
+        <span style="display:inline-flex; align-items:center; justify-content:center; width:54px; height:54px; border-radius:14px; background:var(--color-brand-subtle); color:var(--color-brand-press);"><svg width="27" height="27" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.5 6.5L21 11l-6.5 2.5L12 20l-2.5-6.5L3 11l6.5-2.5z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        <h3 style="font-family:var(--font-heading); font-weight:700; font-size:24px; color:var(--text-heading); margin:20px 0 0;">Our Mission</h3>
+        <p style="font-family:var(--font-body); font-size:16px; line-height:1.7; color:var(--text-body); margin:12px 0 0;">Satisfying existing partners and winning the hearts of new ones is our only driving force as we establish a global footprint.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FIBRE GOALS ============ -->
+  <section style="background:var(--surface-page);">
+    <div style="max-width:1200px; margin:0 auto; padding:clamp(64px,8vw,96px) 24px;">
+      <div style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:24px; padding:clamp(28px,4vw,48px); box-shadow:var(--shadow-sm); display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:clamp(32px,4vw,52px); align-items:center;">
+        <div style="position:relative;">
+          <dc-import name="ImagePlaceholder" label="Fibre-optic network map of Pakistan" aspect="5/4" tone="green" hint-size="100%,360px"></dc-import>
+          <div style="position:absolute; right:18px; bottom:18px; background:var(--surface-inverse); color:#fff; border-radius:16px; padding:16px 20px; box-shadow:var(--shadow-lg);">
+            <div style="font-family:var(--font-heading); font-weight:800; font-size:30px; letter-spacing:-0.02em; line-height:1;">4000 KM</div>
+            <div style="font-family:var(--font-body); font-size:12.5px; color:var(--text-on-dark-muted); margin-top:4px;">Optical fibre planned</div>
+          </div>
+        </div>
+        <div>
+          <span style="font-family:var(--font-heading); font-weight:600; font-size:11.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--color-brand);">Our fibre goals</span>
+          <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px,3.4vw,36px); letter-spacing:-0.02em; color:var(--text-heading); margin:12px 0 0; line-height:1.18;">We&rsquo;re connecting you to everything that matters</h2>
+          <p style="font-family:var(--font-body); font-size:16px; line-height:1.7; color:var(--text-body); margin:16px 0 0;">We are building a robust, resilient fibre-optic network that guarantees superior reliability and uninterrupted connectivity — expanding to 4,000 kilometres of optical fibre across Pakistan, designed to handle high data traffic and exceptional performance.</p>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(210px, 1fr)); gap:12px 22px; margin-top:24px;">
+            <sc-for list="{{ fibreFeatures }}" as="f" hint-placeholder-count="6">
+              <div style="display:flex; align-items:center; gap:11px;">
+                <span style="display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px; border-radius:7px; background:var(--color-brand-subtle); color:var(--color-brand-press); flex:0 0 auto;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                <span style="font-family:var(--font-body); font-size:14.5px; color:var(--text-heading);">{{ f }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OUR SERVICE (4) ============ -->
+  <section style="background:var(--surface-card);">
+    <div style="max-width:1200px; margin:0 auto; padding:clamp(64px,8vw,96px) 24px;">
+      <div style="max-width:660px;">
+        <span style="font-family:var(--font-heading); font-weight:600; font-size:11.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--color-brand);">Explore</span>
+        <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(28px,3.6vw,38px); letter-spacing:-0.02em; color:var(--text-heading); margin:12px 0 0; line-height:1.15;">Explore the HG Telecommunication</h2>
+        <p style="font-family:var(--font-body); font-size:16.5px; line-height:1.7; color:var(--text-body); margin:16px 0 0;">We stay at the forefront of technological advancement — investing in the latest equipment, tools and techniques to provide state-of-the-art solutions that meet the evolving needs of our clients.</p>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:22px; margin-top:40px;">
+
+        <div style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:16px; overflow:hidden; box-shadow:var(--shadow-sm); transition:transform var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);" style-hover="{{ cardHover }}">
+          <dc-import name="ImagePlaceholder" label="Voice & internet" aspect="16/10" radius="0px" hint-size="100%,170px"></dc-import>
+          <div style="padding:24px;">
+            <h3 style="font-family:var(--font-heading); font-weight:700; font-size:19px; color:var(--text-heading); margin:0;">Voice | Internet</h3>
+            <p style="font-family:var(--font-body); font-size:14.5px; line-height:1.6; color:var(--text-body); margin:9px 0 0;">As one of the largest and fastest-growing fibre network infrastructure companies in Pakistan.</p>
+          </div>
+        </div>
+
+        <div style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:16px; overflow:hidden; box-shadow:var(--shadow-sm); transition:transform var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);" style-hover="{{ cardHover }}">
+          <dc-import name="ImagePlaceholder" label="Fibre optic" aspect="16/10" radius="0px" hint-size="100%,170px"></dc-import>
+          <div style="padding:24px;">
+            <h3 style="font-family:var(--font-heading); font-weight:700; font-size:19px; color:var(--text-heading); margin:0;">Fibre Optic</h3>
+            <p style="font-family:var(--font-body); font-size:14.5px; line-height:1.6; color:var(--text-body); margin:9px 0 0;">We deliver seamless, high-quality internet services by maintaining international connectivity.</p>
+          </div>
+        </div>
+
+        <div style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:16px; overflow:hidden; box-shadow:var(--shadow-sm); transition:transform var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);" style-hover="{{ cardHover }}">
+          <dc-import name="ImagePlaceholder" label="Data center" aspect="16/10" radius="0px" hint-size="100%,170px"></dc-import>
+          <div style="padding:24px;">
+            <h3 style="font-family:var(--font-heading); font-weight:700; font-size:19px; color:var(--text-heading); margin:0;">Data Center</h3>
+            <p style="font-family:var(--font-body); font-size:14.5px; line-height:1.6; color:var(--text-body); margin:9px 0 0;">A state-of-the-art networked infrastructure facility offering multilayer protection for B2B clients.</p>
+          </div>
+        </div>
+
+        <div style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:16px; overflow:hidden; box-shadow:var(--shadow-sm); transition:transform var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);" style-hover="{{ cardHover }}">
+          <dc-import name="ImagePlaceholder" label="SMS gateway" aspect="16/10" radius="0px" hint-size="100%,170px"></dc-import>
+          <div style="padding:24px;">
+            <h3 style="font-family:var(--font-heading); font-weight:700; font-size:19px; color:var(--text-heading); margin:0;">SMS Gateway</h3>
+            <p style="font-family:var(--font-body); font-size:14.5px; line-height:1.6; color:var(--text-body); margin:9px 0 0;">Our SMS gateway lets your company receive and send accurate, personalised messages at scale.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS COUNTERS ============ -->
+  <section style="background:var(--color-brand-subtle);">
+    <div ref="{{ statsRef }}" style="max-width:1200px; margin:0 auto; padding:clamp(56px,7vw,84px) 24px; display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:32px;">
+      <div style="text-align:center;">
+        <span style="display:inline-flex; color:var(--color-brand-press); margin-bottom:12px;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M17 20v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2M10 10a3.5 3.5 0 100-7 3.5 3.5 0 000 7zM21 20v-2a4 4 0 00-3-3.85M15 3.13A4 4 0 0117 10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        <div style="font-family:var(--font-heading); font-weight:800; font-size:clamp(34px,4.4vw,46px); letter-spacing:-0.02em; color:var(--text-strong); line-height:1; font-variant-numeric:tabular-nums;">{{ stat0 }}</div>
+        <div style="font-family:var(--font-body); font-size:15px; color:var(--text-body); margin-top:8px;">Client database</div>
+      </div>
+      <div style="text-align:center;">
+        <span style="display:inline-flex; color:var(--color-brand-press); margin-bottom:12px;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M12 7v5l3 2M12 21a9 9 0 100-18 9 9 0 000 18z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        <div style="font-family:var(--font-heading); font-weight:800; font-size:clamp(34px,4.4vw,46px); letter-spacing:-0.02em; color:var(--text-strong); line-height:1; font-variant-numeric:tabular-nums;">{{ stat1 }}</div>
+        <div style="font-family:var(--font-body); font-size:15px; color:var(--text-body); margin-top:8px;">Years of experience</div>
+      </div>
+      <div style="text-align:center;">
+        <span style="display:inline-flex; color:var(--color-brand-press); margin-bottom:12px;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        <div style="font-family:var(--font-heading); font-weight:800; font-size:clamp(34px,4.4vw,46px); letter-spacing:-0.02em; color:var(--text-strong); line-height:1; font-variant-numeric:tabular-nums;">{{ stat2 }}</div>
+        <div style="font-family:var(--font-body); font-size:15px; color:var(--text-body); margin-top:8px;">Employees</div>
+      </div>
+      <div style="text-align:center;">
+        <span style="display:inline-flex; color:var(--color-brand-press); margin-bottom:12px;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M3 12h4l2-7 4 14 2-7h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        <div style="font-family:var(--font-heading); font-weight:800; font-size:clamp(34px,4.4vw,46px); letter-spacing:-0.02em; color:var(--text-strong); line-height:1; font-variant-numeric:tabular-nums;">{{ stat3 }}</div>
+        <div style="font-family:var(--font-body); font-size:15px; color:var(--text-body); margin-top:8px;">Planned fibre (KM)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMMITMENT ============ -->
+  <section style="background:var(--surface-card);">
+    <div style="max-width:1200px; margin:0 auto; padding:clamp(64px,8vw,96px) 24px; display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:clamp(36px,5vw,64px); align-items:center;">
+      <div>
+        <span style="font-family:var(--font-heading); font-weight:600; font-size:11.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--color-brand);">Why HG</span>
+        <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px,3.4vw,36px); letter-spacing:-0.02em; color:var(--text-heading); margin:12px 0 0; line-height:1.18;">Commitment to excellence, built around you</h2>
+        <p style="font-family:var(--font-body); font-size:16px; line-height:1.7; color:var(--text-body); margin:18px 0 0;"><strong style="color:var(--text-heading); font-weight:600;">Commitment to excellence.</strong> From project inception to completion, we strive for perfection in delivering the highest-quality services, meeting deadlines and exceeding customer expectations.</p>
+        <p style="font-family:var(--font-body); font-size:16px; line-height:1.7; color:var(--text-body); margin:14px 0 0;"><strong style="color:var(--text-heading); font-weight:600;">Customer-centric approach.</strong> We deliver tailor-made solutions, provide prompt support and maintain open lines of communication throughout our engagement.</p>
+        <a href="Contact.dc.html" style="display:inline-flex; align-items:center; gap:10px; margin-top:28px; height:52px; padding:0 28px; border-radius:10px; background:var(--color-brand); color:#fff; font-family:var(--font-heading); font-weight:600; font-size:16px; text-decoration:none; box-shadow:var(--shadow-xs); transition:background var(--dur-fast) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);" style-hover="{{ btnPrimaryHover }}">Get started <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+      </div>
+      <dc-import name="ImagePlaceholder" label="Engineers delivering for a client" aspect="4/3" hint-size="100%,360px"></dc-import>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900},&quot;tileGlow&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;tileGlowColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#009942&quot;,&quot;options&quot;:[&quot;#00A850&quot;,&quot;#1FBC6C&quot;,&quot;#00763B&quot;],&quot;tsType&quot;:&quot;string&quot;},&quot;tileGlowStrength&quot;:{&quot;editor&quot;:&quot;float&quot;,&quot;default&quot;:0.3,&quot;min&quot;:0,&quot;max&quot;:1,&quot;step&quot;:0.05,&quot;tsType&quot;:&quot;number&quot;}}">
+class Component extends DCLogic {
+  constructor(props) { super(props); this.statsRef = React.createRef(); }
+  state = { idx: 0, vis: true, counts: [0, 0, 0, 0], started: false };
+  phrases() { return ['the rest of the world.', 'global voice carriers.', 'everything that matters.', 'a digital future.']; }
+  componentDidMount() {
+    const n = this.phrases().length;
+    this._rot = setInterval(() => {
+      this.setState({ vis: false });
+      this._sw = setTimeout(() => this.setState(s => ({ idx: (s.idx + 1) % n, vis: true })), 380);
+    }, 3000);
+    if (typeof IntersectionObserver !== 'undefined' && this.statsRef.current) {
+      this._io = new IntersectionObserver((entries) => {
+        entries.forEach(en => { if (en.isIntersecting && !this.state.started) { this.setState({ started: true }); this.runCounters(); } });
+      }, { threshold: 0.3 });
+      this._io.observe(this.statsRef.current);
+    } else {
+      this.runCounters();
+    }
+  }
+  componentWillUnmount() {
+    clearInterval(this._rot); clearTimeout(this._sw);
+    if (this._io) this._io.disconnect();
+    if (this._raf) cancelAnimationFrame(this._raf);
+  }
+  runCounters() {
+    const targets = [850, 20, 120, 4000]; const dur = 1700; const t0 = performance.now();
+    const tick = (now) => {
+      const p = Math.min(1, (now - t0) / dur);
+      const e = 1 - Math.pow(1 - p, 3);
+      this.setState({ counts: targets.map(v => Math.round(v * e)) });
+      if (p < 1) this._raf = requestAnimationFrame(tick);
+    };
+    this._raf = requestAnimationFrame(tick);
+  }
+  renderVals() {
+    const ph = this.phrases();
+    const c = this.state.counts;
+    return {
+      phrase: ph[this.state.idx],
+      phraseStyle: {
+        display: 'block', color: 'var(--color-brand)',
+        opacity: this.state.vis ? 1 : 0,
+        transform: this.state.vis ? 'translateY(0)' : 'translateY(10px)',
+        transition: 'opacity .38s var(--ease-emphasis), transform .38s var(--ease-emphasis)'
+      },
+      statsRef: this.statsRef,
+      stat0: c[0].toLocaleString() + '+',
+      stat1: c[1] + '+',
+      stat2: c[2] + '+',
+      stat3: c[3].toLocaleString(),
+      cardHover: { transform: 'translateY(-4px)', boxShadow: 'var(--shadow-lg)' },
+      btnPrimaryHover: { background: 'var(--color-brand-hover)', boxShadow: 'var(--shadow-brand)' },
+      partnersStyle: {
+        background: 'var(--surface-page)',
+        '--tile-glow-color': this.props.tileGlowColor || '#00A850',
+        '--tile-glow-opacity': (this.props.tileGlow === false) ? '0' : String(this.props.tileGlowStrength != null ? this.props.tileGlowStrength : 0.9)
+      },
+      btnOutlineHover: { background: 'var(--color-brand-subtle)' },
+      tileHover: { borderColor: 'var(--color-brand)', color: 'var(--text-heading)', boxShadow: 'var(--shadow-sm)' },
+      arrowHover: { gap: '12px', color: 'var(--color-brand-press)' },
+      techPartners: ['HP', 'Dell', 'Dialogic', 'Cisco', 'Fortinet', 'Huawei', 'Dinstar'],
+      bizPartners: ['ADG', 'Link Technology', 'Jazz', 'SCO', 'PTCL', 'Telenor', 'Ufone', 'Zong'],
+      aboutCaps: ['Fiber Optic Network', 'Voice Services', 'Fiber Optic Connectivity', 'Network Expansion', 'SMS Gateway', 'Fiber Infrastructure Upgrades'],
+      fibreFeatures: ['Premium-class ASR, ACD & PDD', 'Redundant upstream links', 'Active backup architecture', 'Class 4 architecture', '24×7 NOC support', 'Network security via NGFW']
+    };
+  }
+}
+</script>
+</body>
+</html>

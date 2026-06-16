@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/hg-communication-design-system-e7295788-beb5-450f-a12b-213eea38d73b/styles.css">
+  <style>*{ box-sizing:border-box; } body{ margin:0; background:var(--surface-card); }</style>
+</helmet>
+<div style="font-family:var(--font-body); color:var(--text-body); background:var(--surface-card);">
+  <dc-import name="SiteHeader" active="wavecomm" hint-size="100%,74px"></dc-import>
+  <dc-import name="PageHero" crumb="Wavecomm Telecom" eyebrow="A company of HG" title="Revolutionizing connectivity in Pakistan" subtitle="Wavecomm Telecom, a new venture by HG, is set to redefine internet connectivity through state-of-the-art Fiber To The Home (FTTH) services — delivering unparalleled connectivity for residential and corporate customers alike." hint-size="100%,360px"></dc-import>
+
+  <section style="background:var(--surface-card);">
+    <div style="max-width:1200px; margin:0 auto; padding:clamp(56px,8vw,92px) 24px;">
+      <div style="max-width:640px;">
+        <span style="font-family:var(--font-heading); font-weight:600; font-size:11.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--color-brand);">Connecting you to the future</span>
+        <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px,3.4vw,36px); letter-spacing:-0.02em; color:var(--text-heading); margin:12px 0 0; line-height:1.18;">FTTH solutions for every connection</h2>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:24px; margin-top:38px;">
+        <div style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:18px; overflow:hidden; box-shadow:var(--shadow-sm); transition:transform var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);" style-hover="{{ cardHover }}">
+          <dc-import name="ImagePlaceholder" label="Family streaming at home over FTTH" aspect="16/9" radius="0px" tone="green" hint-size="100%,230px"></dc-import>
+          <div style="padding:32px;">
+            <span style="display:inline-flex; align-items:center; gap:8px; padding:6px 12px; background:var(--color-brand-subtle); border-radius:999px; font-family:var(--font-heading); font-weight:600; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--color-brand-press);">Residential</span>
+            <h3 style="font-family:var(--font-heading); font-weight:700; font-size:22px; color:var(--text-heading); margin:16px 0 0;">Solutions for residential customers</h3>
+            <p style="font-family:var(--font-body); font-size:15px; line-height:1.7; color:var(--text-body); margin:12px 0 0;">With our FTTH services, residents enjoy lightning-fast internet for seamless streaming, online gaming and ultra-fast downloads. Our fibre ensures a stable connection even during peak usage — with customizable plans from basic browsing to high-bandwidth activities, so every home finds the perfect fit.</p>
+          </div>
+        </div>
+        <div style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:18px; overflow:hidden; box-shadow:var(--shadow-sm); transition:transform var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);" style-hover="{{ cardHover }}">
+          <dc-import name="ImagePlaceholder" label="Business team on a video conference" aspect="16/9" radius="0px" tone="green" hint-size="100%,230px"></dc-import>
+          <div style="padding:32px;">
+            <span style="display:inline-flex; align-items:center; gap:8px; padding:6px 12px; background:var(--color-brand-subtle); border-radius:999px; font-family:var(--font-heading); font-weight:600; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--color-brand-press);">Corporate</span>
+            <h3 style="font-family:var(--font-heading); font-weight:700; font-size:22px; color:var(--text-heading); margin:16px 0 0;">Corporate &amp; business solutions</h3>
+            <p style="font-family:var(--font-body); font-size:15px; line-height:1.7; color:var(--text-body); margin:12px 0 0;">A comprehensive suite of connectivity solutions to support critical operations and drive growth. Our high-speed fibre guarantees low-latency, high-bandwidth connectivity for cloud computing, video conferencing and secure data transmission — with tailored packages for enterprises of all sizes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--surface-page);">
+    <div style="max-width:1200px; margin:0 auto; padding:clamp(56px,8vw,92px) 24px;">
+      <div style="max-width:680px;">
+        <span style="font-family:var(--font-heading); font-weight:600; font-size:11.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--color-brand);">Why choose Wavecomm</span>
+        <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px,3.4vw,36px); letter-spacing:-0.02em; color:var(--text-heading); margin:12px 0 0; line-height:1.18;">Empowering Pakistan with digital tools to excel</h2>
+        <p style="font-family:var(--font-body); font-size:16px; line-height:1.7; color:var(--text-body); margin:16px 0 0;">Whether for home entertainment or business excellence, Wavecomm is your gateway to the future.</p>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(230px, 1fr)); gap:20px; margin-top:38px;">
+        <div style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:16px; padding:28px; box-shadow:var(--shadow-sm); transition:transform var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);" style-hover="{{ cardHover }}">
+          <span style="display:inline-flex; align-items:center; justify-content:center; width:50px; height:50px; border-radius:13px; background:var(--color-brand-subtle); color:var(--color-brand-press);"><svg width="25" height="25" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+          <h3 style="font-family:var(--font-heading); font-weight:700; font-size:19px; color:var(--text-heading); margin:18px 0 0;">Unmatched Speed</h3>
+          <p style="font-family:var(--font-body); font-size:14.5px; line-height:1.6; color:var(--text-body); margin:9px 0 0;">Blazing-fast internet with speeds that cater to all your digital needs.</p>
+        </div>
+        <div style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:16px; padding:28px; box-shadow:var(--shadow-sm); transition:transform var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);" style-hover="{{ cardHover }}">
+          <span style="display:inline-flex; align-items:center; justify-content:center; width:50px; height:50px; border-radius:13px; background:var(--color-brand-subtle); color:var(--color-brand-press);"><svg width="25" height="25" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3zM9 12l2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+          <h3 style="font-family:var(--font-heading); font-weight:700; font-size:19px; color:var(--text-heading); margin:18px 0 0;">Reliability</h3>
+          <p style="font-family:var(--font-body); font-size:14.5px; line-height:1.6; color:var(--text-body); margin:9px 0 0;">Our advanced fibre infrastructure guarantees consistent and stable connections.</p>
+        </div>
+        <div style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:16px; padding:28px; box-shadow:var(--shadow-sm); transition:transform var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);" style-hover="{{ cardHover }}">
+          <span style="display:inline-flex; align-items:center; justify-content:center; width:50px; height:50px; border-radius:13px; background:var(--color-brand-subtle); color:var(--color-brand-press);"><svg width="25" height="25" viewBox="0 0 24 24" fill="none"><path d="M3 12h4l3-8 4 16 3-8h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+          <h3 style="font-family:var(--font-heading); font-weight:700; font-size:19px; color:var(--text-heading); margin:18px 0 0;">Scalability</h3>
+          <p style="font-family:var(--font-body); font-size:14.5px; line-height:1.6; color:var(--text-body); margin:9px 0 0;">Customizable plans to meet the unique requirements of every household and business.</p>
+        </div>
+        <div style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:16px; padding:28px; box-shadow:var(--shadow-sm); transition:transform var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);" style-hover="{{ cardHover }}">
+          <span style="display:inline-flex; align-items:center; justify-content:center; width:50px; height:50px; border-radius:13px; background:var(--color-brand-subtle); color:var(--color-brand-press);"><svg width="25" height="25" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM12 8v4l3 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+          <h3 style="font-family:var(--font-heading); font-weight:700; font-size:19px; color:var(--text-heading); margin:18px 0 0;">Future-Ready</h3>
+          <p style="font-family:var(--font-body); font-size:14.5px; line-height:1.6; color:var(--text-body); margin:9px 0 0;">Our FTTH services are designed to support future advancements in technology.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  renderVals() {
+    return { cardHover: { transform: 'translateY(-4px)', boxShadow: 'var(--shadow-lg)' } };
+  }
+}
+</script>
+</body>
+</html>

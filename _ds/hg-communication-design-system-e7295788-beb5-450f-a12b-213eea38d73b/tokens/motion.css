@@ -1,0 +1,26 @@
+/* ============================================================
+   HG Telecommunication — Motion
+   Calm, confident. Short ease-out transitions for UI; subtle
+   fade-up for reveals. No bounce, no long durations.
+   ============================================================ */
+:root {
+  --ease-standard: cubic-bezier(0.22, 0.61, 0.36, 1);  /* @kind other */
+  --ease-emphasis: cubic-bezier(0.16, 1, 0.30, 1);     /* @kind other */
+  --ease-in-out:   cubic-bezier(0.65, 0, 0.35, 1);     /* @kind other */
+
+  --dur-fast:   120ms;  /* @kind other */
+  --dur-base:   200ms;  /* @kind other */
+  --dur-slow:   320ms;  /* @kind other */
+  --dur-reveal: 560ms;  /* @kind other */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes hg-fade-up {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes hg-fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+}

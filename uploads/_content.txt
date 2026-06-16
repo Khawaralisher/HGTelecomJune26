@@ -1,0 +1,247 @@
+WEBSITE CONTENT EXTRACTION
+HG Telecommunication (Pvt) Ltd
+hg.com.pk
+Full page-by-page content inventory
+Prepared for Sher
+Extracted 16 June 2026
+[Heading1] Document Overview
+This document is a complete content extraction of the HG Telecommunication website (hg.com.pk). Every page reachable from the site&apos;s main navigation and footer has been captured, with each page&apos;s web address, page title, meta description, and full on-page text recorded so the content can be reviewed, repurposed, or migrated without needing to visit the live site.
+[Heading2] Site at a glance
+Website
+hg.com.pk
+Organisation
+HG Telecommunication (Pvt) Ltd
+Platform
+WordPress (built with the Elementor page builder)
+Industry
+Telecommunications / LDI operator (Pakistan)
+Pages captured
+7 (Home, About, Services, Link Technology, Wavecomm Telecom, Careers, Contact)
+[Heading2] Pages included
+[ListParagraph] Home — https://hg.com.pk/
+[ListParagraph] About Us — https://hg.com.pk/about/
+[ListParagraph] Our Services — https://hg.com.pk/services/
+[ListParagraph] Link Technology (company) — https://hg.com.pk/link-technology/
+[ListParagraph] Wavecomm Telecom (company) — https://hg.com.pk/wavecomm-telecom/
+[ListParagraph] Careers — https://hg.com.pk/careers/
+[ListParagraph] Contact — https://hg.com.pk/contact/
+[Heading2] Elements common to every page
+The following appear on all pages and are documented once here rather than repeated for each page.
+[Heading3] Top navigation menu
+[ListParagraph] Home
+[ListParagraph] About
+[ListParagraph] Companies (dropdown: Link Technology, Wavecomm Telecom)
+[ListParagraph] Careers
+[ListParagraph] Contact
+[ListParagraph] Call Us button — +92 51 2726552
+[Heading3] Footer
+Tagline: Empower your communication and connect with the world through our cutting-edge Voice | Internet services, delivering unmatched reliability and lightning-fast speeds.
+[ListParagraph] Address: Islamabad, Pakistan
+[ListParagraph] Email: info@hg.com.pk
+[ListParagraph] Phone: +92 51 2726552
+[ListParagraph] Other Pages links: Home, About Us, Services, Contact
+[ListParagraph] Newsletter sign-up: “Get the latest news & updates” with Subscribe button
+[ListParagraph] Social links: Facebook, Twitter, Instagram, LinkedIn
+[ListParagraph] Copyright: HG TeleCommunication PVT LTD — Copyright © 2024 All rights reserved.
+[Heading1] 1. Home
+URL
+https://hg.com.pk/
+Page title
+Home - HG Telecommunication
+Meta description
+Welcome To HG Communication. Connecting Pakistan to the rest of the world. High availability with 99.99% up time. Pakistan LDI License holder for Retail & Wholesale Traffic.
+[Heading2] Hero section
+Welcome To HG Communication
+Connecting Pakistan to the rest of the world. High availability with 99.99% up time. Pakistan LDI License holder for Retail & Wholesale Traffic.
+HG Communication provides international voice traffic termination to and from Pakistan. We operate with a worldwide carrier network platform capable of interconnecting both on SIP & TDM.
+[Heading2] Service highlights (three cards)
+[Heading3] LDI Services
+Stay Ahead with Pakistan&apos;s Premier LDI Operator. The future of advanced communication, redefining connectivity in Pakistan&apos;s digital landscape. (Read More links to an LDI licence PDF.)
+[Heading3] Voice | IPT Service
+Long distance voice & internet backbone services, maintaining domestic long haul & international connectivity.
+[Heading3] Data Center
+HG Data Center is a state-of-the-art networked infrastructure facility offering multilayer protection for B2B clients.
+[Heading2] About Us (intro block)
+We Provide Best Voice, Messaging & Corporate Internet Solution
+We have established ourselves as the industry leader in deploying state-of-the-art communication solutions.
+Highlighted capabilities:
+[ListParagraph] Fiber Optic Network
+[ListParagraph] Voice Services
+[ListParagraph] Fiber Optic Connectivity
+[ListParagraph] Network Expansion
+[ListParagraph] SMS Gateway
+[ListParagraph] Fiber Infrastructure Upgrades
+[Heading2] Tech Partners & Business Partners
+The page displays partner/brand logos in two groups. Tech Partners include: HP, Dell, Dialogic, Cisco, Fortinet, Huawei, Dinstar. Business Partners include: ADG, Link Technology, Jazz, SCO, PTCL, Telenor, Ufone, Zong (shown as logos).
+[Heading2] Vision & Mission
+[Heading3] Our Vision
+Our mission is quite simply to focus on strengthening our brand perception by delivering world class customer experience.
+[Heading3] Our Mission
+Satisfying existing partners and winning the hearts of new ones are our only driving force in order to establish a global footprint.
+[Heading2] Our Fibre Goals
+We&apos;re Connecting You To Everything That Matters
+We are planning to build a robust and resilient fiber optic network that guarantees superior reliability and uninterrupted connectivity. We are expanding to 4000 kilometers of optical fiber structure across Pakistan. Our infrastructure is designed to handle high data traffic and provide exceptional performance, ensuring your business operates smoothly.
+Feature points:
+[ListParagraph] Premium class ASR, ACD & PDD
+[ListParagraph] Redundant Upstream Links
+[ListParagraph] Active Backup Architecture
+[ListParagraph] Class 4 Architecture
+[ListParagraph] 24x7 NOC Support
+[ListParagraph] Network Security via NGFW
+[Heading2] Our Service
+Explore The HG Tele-Communication
+At HG Communication, we stay at the forefront of technological advancements in the industry. We invest in the latest equipment, tools, and techniques to provide state-of-the-art solutions that meet the evolving needs of clients.
+[Heading3] Voice | Internet
+As one of the largest and fastest-growing fiber network infrastructure companies in Pakistan.
+[Heading3] Fibre Optic
+We deliver seamless high-quality internet services by maintaining international connectivity.
+[Heading3] Data Center
+As one of the largest and fastest-growing fiber network infrastructure companies in Pakistan.
+[Heading3] SMS Gateway
+Our SMS gateway also allows your company to receive accurate and send personalised messages.
+[Heading2] Statistics counters
+Animated counters (values display starting from 0 on the live site):
+[ListParagraph] Client Database
+[ListParagraph] Years Of Experience
+[ListParagraph] Employees
+[ListParagraph] Planned Fiber Optic (KM)
+[Heading2] Commitment section
+Commitment to Excellence / Customer-Centric Approach
+We are committed to excellence in every aspect of our operations. From project inception to completion, we strive for perfection in delivering the highest quality services, meeting deadlines, and exceeding customer expectations.
+We prioritize our customers and their unique requirements. Our customer-centric approach ensures that we deliver tailor-made solutions, provide prompt support, and maintain open lines of communication throughout our engagement. (Get Started button.)
+[Heading2] Contact form
+A form at the bottom of the page collects: Your name, Email Address, and Comments / Questions.
+[Heading1] 2. About Us
+URL
+https://hg.com.pk/about/
+Page title
+About - HG Telecommunication
+Meta description
+We are one of the LDI license holder companies in Pakistan. HG Telecommunication (Pvt) Ltd was founded in 2022 and obtained its licence in 2023 to provide LDI operations in Pakistan, with a 20-year licence.
+[Heading2] Breadcrumb
+Home › About Us
+[Heading2] About Us
+We are one of the LDI license holder companies in Pakistan
+HG Telecommunication (Pvt) Ltd was founded in 2022 and obtained its licence in 2023 to provide LDI operation in Pakistan. HG has a licence for the next 20 years and holds a competitive advantage over other LDIs whose licences will be expiring by 2024.
+HG Telecommunication&apos;s management has deep roots in the telecom industry. They have experience running LDI business under the name ADG LDI and have established an international voice wholesale aggregator, Link Technology. This gives them an advantage as they already have a deep understanding of the telecommunication business and have already established interconnects with major telecom service providers worldwide.
+HG plans to deploy fibre throughout Pakistan to digitise the country and provide services to businesses operating around the country.
+[Heading2] Values / pillars
+[Heading3] Our Vision
+Our mission is quite simply to focus on strengthening our brand perception by delivering world class customer experience.
+[Heading3] Our Mission
+Satisfying existing partners and winning the hearts of new ones are our only driving force in order to establish a global footprint.
+[Heading3] Our Support
+Our dedicated team is available 24/7 to address any inquiries, troubleshoot issues, and ensure seamless connectivity.
+[Heading3] Our Awards
+We take pride in these achievements and remain dedicated to setting new standards in the world of networking.
+[Heading1] 3. Our Services
+URL
+https://hg.com.pk/services/
+Page title
+Services - HG Telecommunication
+Meta description
+Explore Our Service. At HG Communication, we stay at the forefront of technological advancements in the industry, investing in the latest equipment, tools, and techniques.
+[Heading2] Breadcrumb
+Home › Service
+[Heading2] Explore Our Service
+At HG Communication, we stay at the forefront of technological advancements in the industry. We invest in the latest equipment, tools, and techniques to provide state-of-the-art solutions that meet the evolving needs of clients.
+[Heading3] Voice | Internet
+As one of the largest and fastest-growing fiber network infrastructure companies in Pakistan.
+[Heading3] Fibre Optic
+We deliver seamless high-quality internet services by maintaining international connectivity.
+[Heading3] Data Center
+As one of the largest and fastest-growing fiber network infrastructure companies in Pakistan.
+[Heading3] SMS Gateway
+Our SMS gateway also allows your company to receive accurate and send personalised messages.
+[Heading1] 4. Link Technology
+URL
+https://hg.com.pk/link-technology/
+Page title
+Link Technology - HG Telecommunication
+Meta description
+Bridging Innovation with Global Connectivity. Link Technology blends advanced technology with forward-thinking business strategies to deliver top-tier connectivity solutions across borders.
+[Heading2] Link Technology
+Bridging Innovation with Global Connectivity
+At Link Technology, we blend advanced technology with forward-thinking business strategies to deliver top-tier connectivity solutions across borders. Our commitment to innovation and adaptability ensures that we stay ahead in the ever-evolving world of telecommunications.
+(The Link Technology logo links to an external site: link-technology.net.)
+[Heading2] Our Expertise
+[ListParagraph] International Connectivity
+[ListParagraph] Adapting with Technological Evolution
+[Heading2] What We Do
+Link Technology is dedicated to enhancing global communication by seamlessly integrating cutting-edge technology into the dynamic landscape of global telecommunications. For over a decade, we have collaborated with leading national and international carriers, focusing on the continuous improvement and reliable delivery of international voice transport services worldwide. Our commitment to technological advancement and long-standing partnerships reflects our mission to be a key contributor to the global telecommunications industry. Through strategic alliances and a visionary approach, Link Technology strives to create a more interconnected and technologically advanced world.
+[Heading3] Voice Termination
+Link Technology specializes in providing high-quality voice termination services, ensuring clear and reliable communication across international borders. Our extensive network and partnerships with global carriers allow us to deliver exceptional voice quality and uninterrupted connectivity, making sure your calls reach their destinations with minimal latency and maximum clarity.
+[Heading3] Data Connectivity
+In today&apos;s digital world, seamless data connectivity is crucial for businesses to thrive. Link Technology offers robust and secure data connectivity solutions that cater to the diverse needs of our clients. Whether it&apos;s for enterprise networking, cloud access, or secure data transmission, we ensure that your business stays connected with the highest standards of speed, reliability, and security.
+[Heading3] SMS Services
+Our SMS services provide a powerful platform for businesses to communicate with their customers and partners globally. With our extensive reach and efficient delivery mechanisms, Link Technology enables businesses to send and receive text messages with ease, supporting everything from marketing campaigns to critical alerts, all while maintaining high delivery rates and compliance with international standards.
+[Heading1] 5. Wavecomm Telecom
+URL
+https://hg.com.pk/wavecomm-telecom/
+Page title
+Wavecomm Telecom - HG Telecommunication
+Meta description
+Revolutionizing Connectivity in Pakistan. Wavecomm Telecom, a new venture by HG Telecom, is set to redefine internet connectivity in Pakistan through state-of-the-art Fiber To The Home (FTTH) services.
+[Heading2] Wavecomm Telecom
+Revolutionizing Connectivity in Pakistan
+Wavecomm Telecom, a new venture by HG Telecom, is set to redefine internet connectivity in Pakistan through its state-of-the-art Fiber To The Home (FTTH) services. Designed to meet the growing demands of both residential and corporate customers, Wavecomm Telecom promises to deliver unparalleled connectivity and a robust internet infrastructure that caters to the needs of a digitally-driven world.
+[Heading2] Connecting you to the future!
+[Heading3] Solutions for Residential Customers
+Wavecomm Telecom is committed to enhancing the online experience for households across Pakistan. With our FTTH services, residents will enjoy lightning-fast internet speeds, allowing for seamless streaming, online gaming, and ultra-fast downloads. Our fiber optic technology ensures a stable connection, even during peak usage times, providing families with a reliable and uninterrupted internet experience. Additionally, Wavecomm offers a range of customizable plans to suit different household needs, from basic browsing to high-bandwidth activities, ensuring that every home can find the perfect fit.
+[Heading3] Corporate & Business Solutions
+For businesses, Wavecomm Telecom provides a comprehensive suite of connectivity solutions designed to support critical operations and drive growth. Our high-speed fiber optic network guarantees low-latency, high-bandwidth connectivity, enabling businesses to operate efficiently in the modern digital economy. Whether it&apos;s for cloud computing, video conferencing, or secure data transmission, our FTTH services offer the reliability and speed that corporate customers need to stay competitive. Furthermore, Wavecomm Telecom offers tailored packages for enterprises of all sizes, ensuring that businesses have access to the resources they need to thrive.
+[Heading2] Why Choose Wavecomm Telecom?
+Wavecomm Telecom is not just about connectivity; it&apos;s about empowering Pakistan with the digital tools needed to excel in the 21st century. Whether for home entertainment or business excellence, Wavecomm is your gateway to the future.
+[Heading3] Unmatched Speed
+Experience blazing-fast internet with speeds that cater to all your digital needs.
+[Heading3] Reliability
+Our advanced fiber optic infrastructure guarantees consistent and stable connections.
+[Heading3] Scalability
+Customizable plans and solutions to meet the unique requirements of every household and business.
+[Heading3] Future-Ready
+Our FTTH services are designed to support future advancements in technology.
+[Heading1] 6. Careers
+URL
+https://hg.com.pk/careers/
+Page title
+Careers - HG Telecommunication
+Meta description
+Careers — Get In Touch With Us. Contact details, office addresses, and an enquiry form.
+[Heading2] Breadcrumb
+Home › Careers
+[Heading2] Get In Touch With Us
+Note: The Careers page currently shows the same contact information and enquiry form as the Contact page — there are no specific job listings published. Content below is what appears on the page.
+[Heading3] Registered Address
+Office 209, 2nd floor, Evacuee Trust, Islamabad
+[Heading3] Lahore Office
+102 - H Block Gulberg III, Lahore
+[Heading3] Phone Number
++92 51 2726552  /  +92 42 35442428
+[Heading3] Email Us
+info@hg.com.pk
+[Heading3] Working Hours
+Mon - Sat : 9:00 - 5:00
+[Heading3] Enquiry form
+Fields: Your name, Email Address, Comments / Questions. An embedded Google Map (Lahore location) is also shown.
+[Heading1] 7. Contact
+URL
+https://hg.com.pk/contact/
+Page title
+Contact - HG Telecommunication
+Meta description
+Contact Us — Get In Touch With Us. Office addresses, phone numbers, email, working hours, and an enquiry form.
+[Heading2] Breadcrumb
+Home › Contact
+[Heading2] Get In Touch With Us
+[Heading3] Registered Address
+Office 209, 2nd floor, Evacuee Trust, Islamabad
+[Heading3] Lahore Office
+102 - H Block Gulberg III, Lahore
+[Heading3] Phone Number
++92 51 2726552  /  +92 42 35442428
+[Heading3] Email Us
+info@hg.com.pk
+[Heading3] Working Hours
+Mon - Sat : 9:00 - 5:00
+[Heading3] Enquiry form
+Fields: Your name, Email Address, Comments / Questions. An embedded Google Map (Lahore location) is also shown.

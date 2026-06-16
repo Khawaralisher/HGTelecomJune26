@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/hg-communication-design-system-e7295788-beb5-450f-a12b-213eea38d73b/styles.css">
+  <style>*{ box-sizing:border-box; } body{ margin:0; background:var(--surface-card); }</style>
+</helmet>
+<div style="font-family:var(--font-body); color:var(--text-body); background:var(--surface-card);">
+  <dc-import name="SiteHeader" active="services" hint-size="100%,74px"></dc-import>
+  <dc-import name="PageHero" crumb="Services" eyebrow="Our Services" title="Explore our service" subtitle="At HG Telecommunication, we stay at the forefront of technological advancements — investing in the latest equipment, tools and techniques to deliver state-of-the-art solutions that meet the evolving needs of our clients." hint-size="100%,340px"></dc-import>
+
+  <section style="background:var(--surface-page);">
+    <div style="max-width:1200px; margin:0 auto; padding:clamp(56px,8vw,92px) 24px;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:24px;">
+
+        <div style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:18px; overflow:hidden; box-shadow:var(--shadow-sm); transition:transform var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);" style-hover="{{ cardHover }}">
+          <dc-import name="ImagePlaceholder" label="Voice & internet backbone" aspect="16/9" radius="0px" tone="green" hint-size="100%,210px"></dc-import>
+          <div style="padding:30px;">
+            <span style="font-family:var(--font-mono); font-size:13px; color:var(--color-brand); letter-spacing:0.04em;">01 — Voice</span>
+            <h3 style="font-family:var(--font-heading); font-weight:700; font-size:22px; color:var(--text-heading); margin:8px 0 0;">Voice | Internet</h3>
+            <p style="font-family:var(--font-body); font-size:15px; line-height:1.65; color:var(--text-body); margin:10px 0 0;">As one of the largest and fastest-growing fibre network infrastructure companies in Pakistan.</p>
+            <div style="display:flex; flex-direction:column; gap:10px; margin-top:18px;">
+              <sc-for list="{{ voicePts }}" as="p" hint-placeholder-count="3"><div style="display:flex; align-items:center; gap:10px;"><span style="display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:6px; background:var(--color-brand-subtle); color:var(--color-brand-press); flex:0 0 auto;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span style="font-family:var(--font-body); font-size:14px; color:var(--text-heading);">{{ p }}</span></div></sc-for>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:18px; overflow:hidden; box-shadow:var(--shadow-sm); transition:transform var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);" style-hover="{{ cardHover }}">
+          <dc-import name="ImagePlaceholder" label="Fibre-optic cabling" aspect="16/9" radius="0px" tone="green" hint-size="100%,210px"></dc-import>
+          <div style="padding:30px;">
+            <span style="font-family:var(--font-mono); font-size:13px; color:var(--color-brand); letter-spacing:0.04em;">02 — Fibre</span>
+            <h3 style="font-family:var(--font-heading); font-weight:700; font-size:22px; color:var(--text-heading); margin:8px 0 0;">Fibre Optic</h3>
+            <p style="font-family:var(--font-body); font-size:15px; line-height:1.65; color:var(--text-body); margin:10px 0 0;">We deliver seamless, high-quality internet services by maintaining international connectivity.</p>
+            <div style="display:flex; flex-direction:column; gap:10px; margin-top:18px;">
+              <sc-for list="{{ fibrePts }}" as="p" hint-placeholder-count="3"><div style="display:flex; align-items:center; gap:10px;"><span style="display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:6px; background:var(--color-brand-subtle); color:var(--color-brand-press); flex:0 0 auto;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span style="font-family:var(--font-body); font-size:14px; color:var(--text-heading);">{{ p }}</span></div></sc-for>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:18px; overflow:hidden; box-shadow:var(--shadow-sm); transition:transform var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);" style-hover="{{ cardHover }}">
+          <dc-import name="ImagePlaceholder" label="Data centre racks" aspect="16/9" radius="0px" tone="green" hint-size="100%,210px"></dc-import>
+          <div style="padding:30px;">
+            <span style="font-family:var(--font-mono); font-size:13px; color:var(--color-brand); letter-spacing:0.04em;">03 — Data</span>
+            <h3 style="font-family:var(--font-heading); font-weight:700; font-size:22px; color:var(--text-heading); margin:8px 0 0;">Data Center</h3>
+            <p style="font-family:var(--font-body); font-size:15px; line-height:1.65; color:var(--text-body); margin:10px 0 0;">A state-of-the-art networked infrastructure facility offering multilayer protection for B2B clients.</p>
+            <div style="display:flex; flex-direction:column; gap:10px; margin-top:18px;">
+              <sc-for list="{{ dataPts }}" as="p" hint-placeholder-count="3"><div style="display:flex; align-items:center; gap:10px;"><span style="display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:6px; background:var(--color-brand-subtle); color:var(--color-brand-press); flex:0 0 auto;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span style="font-family:var(--font-body); font-size:14px; color:var(--text-heading);">{{ p }}</span></div></sc-for>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:18px; overflow:hidden; box-shadow:var(--shadow-sm); transition:transform var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);" style-hover="{{ cardHover }}">
+          <dc-import name="ImagePlaceholder" label="SMS gateway dashboard" aspect="16/9" radius="0px" tone="green" hint-size="100%,210px"></dc-import>
+          <div style="padding:30px;">
+            <span style="font-family:var(--font-mono); font-size:13px; color:var(--color-brand); letter-spacing:0.04em;">04 — Messaging</span>
+            <h3 style="font-family:var(--font-heading); font-weight:700; font-size:22px; color:var(--text-heading); margin:8px 0 0;">SMS Gateway</h3>
+            <p style="font-family:var(--font-body); font-size:15px; line-height:1.65; color:var(--text-body); margin:10px 0 0;">Our SMS gateway lets your company receive accurate and send personalised messages at scale.</p>
+            <div style="display:flex; flex-direction:column; gap:10px; margin-top:18px;">
+              <sc-for list="{{ smsPts }}" as="p" hint-placeholder-count="3"><div style="display:flex; align-items:center; gap:10px;"><span style="display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:6px; background:var(--color-brand-subtle); color:var(--color-brand-press); flex:0 0 auto;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span style="font-family:var(--font-body); font-size:14px; color:var(--text-heading);">{{ p }}</span></div></sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:40px; background:var(--surface-inverse); border-radius:22px; padding:clamp(32px,4vw,52px); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:24px; position:relative; overflow:hidden;">
+        <img src="assets/logo/hg-monogram-green.png" alt="" style="position:absolute; right:-50px; top:50%; transform:translateY(-50%); width:280px; opacity:0.08;">
+        <div style="position:relative; max-width:620px;">
+          <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(24px,3vw,32px); letter-spacing:-0.02em; color:#fff; margin:0; line-height:1.2;">Not sure which service fits your business?</h2>
+          <p style="font-family:var(--font-body); font-size:16px; color:var(--text-on-dark-muted); margin:12px 0 0;">Talk to our engineers and we&rsquo;ll design the right connectivity solution for you.</p>
+        </div>
+        <a href="Contact.dc.html" style="position:relative; display:inline-flex; align-items:center; gap:10px; height:54px; padding:0 30px; border-radius:10px; background:var(--color-brand); color:#fff; font-family:var(--font-heading); font-weight:600; font-size:16px; text-decoration:none; transition:background var(--dur-fast) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);" style-hover="{{ btnPrimaryHover }}">Talk to an engineer <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      cardHover: { transform: 'translateY(-4px)', boxShadow: 'var(--shadow-lg)' },
+      btnPrimaryHover: { background: 'var(--color-brand-hover)', boxShadow: 'var(--shadow-brand)' },
+      voicePts: ['International voice traffic termination', 'SIP & TDM interconnects', 'Domestic long-haul & international backbone'],
+      fibrePts: ['Seamless high-quality internet', 'International connectivity maintained', 'Fast-growing fibre infrastructure'],
+      dataPts: ['State-of-the-art facility', 'Multilayer protection', 'Built for B2B clients'],
+      smsPts: ['Send & receive at scale', 'Accurate, personalised messaging', 'Reliable delivery rates']
+    };
+  }
+}
+</script>
+</body>
+</html>

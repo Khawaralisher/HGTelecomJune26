@@ -1,0 +1,85 @@
+/* ============================================================
+   HG Telecommunication — Color System
+   Anchored on the logo green #00A850 and logo ink #0B2A1A.
+   Base palette (raw scales) + semantic aliases (use these in UI).
+   ============================================================ */
+:root {
+  /* ---- Brand green scale (HG Green) ---- */
+  --green-50:  #E8F8EF;
+  --green-100: #C7F0D8;
+  --green-200: #93E2B5;
+  --green-300: #56D08F;
+  --green-400: #1FBC6C;
+  --green-500: #00A850;  /* ★ Brand primary — sampled from logo */
+  --green-600: #009147;  /* hover */
+  --green-700: #00763B;  /* press / strong */
+  --green-800: #0C5A2F;
+  --green-900: #0E3F24;
+  --green-950: #0B2A1A;  /* logo ink — darkest, near-black green */
+
+  /* ---- Neutrals (green-tinted slate) ---- */
+  --neutral-0:   #FFFFFF;
+  --neutral-50:  #F6F8F7;
+  --neutral-100: #EDF1EF;
+  --neutral-200: #DCE3DF;
+  --neutral-300: #BCC7C2;
+  --neutral-400: #93A19A;
+  --neutral-500: #6B7B73;
+  --neutral-600: #4F5E56;
+  --neutral-700: #38453E;
+  --neutral-800: #232E29;
+  --neutral-900: #14201B;  /* ink */
+
+  /* ---- Semantic status hues ---- */
+  --blue-50:   #EAF3FF;  --blue-500:  #2E7CF6;  --blue-600:  #1A63D8;
+  --amber-50:  #FFF6E6;  --amber-500: #E8930C;  --amber-600: #C77A05;
+  --red-50:    #FDECEC;  --red-500:   #D92D20;  --red-600:   #B42318;
+
+  /* ============================================================
+     SEMANTIC ALIASES — reference these in components/UI, not the
+     raw scales above.
+     ============================================================ */
+
+  /* Brand */
+  --color-brand:           var(--green-500);
+  --color-brand-hover:     var(--green-600);
+  --color-brand-press:     var(--green-700);
+  --color-brand-ink:       var(--green-950);   /* top-level headings */
+  --color-brand-subtle:    var(--green-50);    /* tinted surfaces */
+  --color-on-brand:        #FFFFFF;
+
+  /* Text */
+  --text-strong:  var(--green-950);   /* H1 / hero — brand ink green */
+  --text-heading: var(--neutral-900); /* H2–H6 */
+  --text-body:    var(--neutral-700);
+  --text-muted:   var(--neutral-500);
+  --text-faint:   var(--neutral-400);
+  --text-on-dark: rgba(255,255,255,0.92);
+  --text-on-dark-muted: rgba(255,255,255,0.66);
+  --text-link:    var(--green-700);
+
+  /* Surfaces */
+  --surface-page:      var(--neutral-50);
+  --surface-card:      var(--neutral-0);
+  --surface-sunken:    var(--neutral-100);
+  --surface-inverse:   var(--green-950);   /* dark sections / footer */
+  --surface-brand:     var(--green-500);   /* brand-filled blocks */
+  --surface-brand-deep:var(--green-800);
+
+  /* Borders & lines */
+  --border-subtle: var(--neutral-200);
+  --border-default:var(--neutral-300);
+  --border-strong: var(--neutral-400);
+  --border-brand:  var(--green-500);
+  --ring-brand:    rgba(0,168,80,0.35);   /* focus ring */
+
+  /* Status */
+  --color-success:    var(--green-600);
+  --color-success-bg: var(--green-50);
+  --color-info:       var(--blue-500);
+  --color-info-bg:    var(--blue-50);
+  --color-warning:    var(--amber-500);
+  --color-warning-bg: var(--amber-50);
+  --color-danger:     var(--red-500);
+  --color-danger-bg:  var(--red-50);
+}
