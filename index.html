@@ -21,6 +21,15 @@
     .hg-tile::before{ content:''; position:absolute; inset:-12px; border-radius:20px; background:radial-gradient(120% 120% at 50% 50%, var(--tile-glow-color, #00A850) 0%, transparent 68%); opacity:0; filter:blur(8px); transition:opacity var(--dur-base) var(--ease-standard); z-index:-1; pointer-events:none; }
     .hg-tile:hover::before{ opacity:var(--tile-glow-opacity, 0.9); }
     .hg-tile:hover{ border-color:var(--color-brand); color:var(--text-heading); box-shadow:var(--shadow-md); }
+    /* Partner logo marquee */
+    @keyframes hgMarquee{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+    .hg-marquee{ overflow:hidden; width:100%; -webkit-mask-image:linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%); mask-image:linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%); }
+    .hg-marquee-track{ display:flex; align-items:center; width:max-content; animation:hgMarquee 40s linear infinite; will-change:transform; }
+    .hg-marquee-group{ display:flex; align-items:center; flex:0 0 auto; gap:clamp(36px,5vw,72px); padding-right:clamp(36px,5vw,72px); }
+    .hg-marquee:hover .hg-marquee-track{ animation-play-state:paused; }
+    .hg-logo{ max-height:50px; width:auto; max-width:170px; object-fit:contain; flex:0 0 auto; filter:grayscale(1); opacity:0.7; transition:filter var(--dur-base) var(--ease-standard), opacity var(--dur-base) var(--ease-standard); }
+    .hg-logo:hover{ filter:grayscale(0); opacity:1; }
+    @media (prefers-reduced-motion: reduce){ .hg-marquee-track{ animation:none !important; } }
   </style>
 </helmet>
 
@@ -146,27 +155,47 @@
 
   <!-- ============ PARTNERS ============ -->
   <section style="{{ partnersStyle }}">
-    <div style="max-width:1200px; margin:0 auto; padding:clamp(56px,7vw,84px) 24px;">
+    <div style="max-width:1200px; margin:0 auto; padding:clamp(56px,7vw,84px) 24px 0;">
       <div style="text-align:center; max-width:600px; margin:0 auto;">
         <span style="font-family:var(--font-heading); font-weight:600; font-size:11.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--color-brand);">Trusted ecosystem</span>
         <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(24px,3vw,32px); letter-spacing:-0.02em; color:var(--text-heading); margin:12px 0 0;">Our technology &amp; business partners</h2>
-        <p style="font-family:var(--font-body); font-size:14px; color:var(--text-muted); margin:10px 0 0;">Partner brand logos shown as placeholders &mdash; swap in official artwork.</p>
-      </div>
-
-      <div style="font-family:var(--font-heading); font-weight:700; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); margin:40px 0 16px;">Technology partners</div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:14px; position:relative; z-index:0;">
-        <sc-for list="{{ techPartners }}" as="p" hint-placeholder-count="7">
-          <div class="hg-tile" style="height:76px; display:flex; align-items:center; justify-content:center; background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:12px; font-family:var(--font-heading); font-weight:700; font-size:16px; letter-spacing:0.03em; color:var(--neutral-500);">{{ p }}</div>
-        </sc-for>
-      </div>
-
-      <div style="font-family:var(--font-heading); font-weight:700; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); margin:36px 0 16px;">Business partners</div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:14px; position:relative; z-index:0;">
-        <sc-for list="{{ bizPartners }}" as="p" hint-placeholder-count="8">
-          <div class="hg-tile" style="height:76px; display:flex; align-items:center; justify-content:center; background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:12px; font-family:var(--font-heading); font-weight:700; font-size:16px; letter-spacing:0.03em; color:var(--neutral-500);">{{ p }}</div>
-        </sc-for>
+        <p style="font-family:var(--font-body); font-size:14px; color:var(--text-muted); margin:10px 0 0;">Working alongside the world&rsquo;s leading technology vendors and Pakistan&rsquo;s top operators.</p>
       </div>
     </div>
+
+    <div style="font-family:var(--font-heading); font-weight:700; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); text-align:center; margin:40px 0 16px;">Technology partners</div>
+    <div class="hg-marquee">
+      <div class="hg-marquee-track">
+        <div class="hg-marquee-group">
+          <sc-for list="{{ techPartners }}" as="p" hint-placeholder-count="7">
+            <img class="hg-logo" src="{{ p.logo }}" alt="{{ p.name }}" loading="lazy">
+          </sc-for>
+        </div>
+        <div class="hg-marquee-group" aria-hidden="true">
+          <sc-for list="{{ techPartners }}" as="p" hint-placeholder-count="7">
+            <img class="hg-logo" src="{{ p.logo }}" alt="" loading="lazy">
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <div style="font-family:var(--font-heading); font-weight:700; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); text-align:center; margin:36px 0 16px;">Business partners</div>
+    <div class="hg-marquee">
+      <div class="hg-marquee-track" style="animation-duration:46s; animation-direction:reverse;">
+        <div class="hg-marquee-group">
+          <sc-for list="{{ bizPartners }}" as="p" hint-placeholder-count="8">
+            <img class="hg-logo" src="{{ p.logo }}" alt="{{ p.name }}" loading="lazy">
+          </sc-for>
+        </div>
+        <div class="hg-marquee-group" aria-hidden="true">
+          <sc-for list="{{ bizPartners }}" as="p" hint-placeholder-count="8">
+            <img class="hg-logo" src="{{ p.logo }}" alt="" loading="lazy">
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:clamp(56px,7vw,84px);"></div>
   </section>
 
   <!-- ============ VISION & MISSION ============ -->
@@ -365,8 +394,25 @@ class Component extends DCLogic {
       btnOutlineHover: { background: 'var(--color-brand-subtle)' },
       tileHover: { borderColor: 'var(--color-brand)', color: 'var(--text-heading)', boxShadow: 'var(--shadow-sm)' },
       arrowHover: { gap: '12px', color: 'var(--color-brand-press)' },
-      techPartners: ['HP', 'Dell', 'Dialogic', 'Cisco', 'Fortinet', 'Huawei', 'Dinstar'],
-      bizPartners: ['ADG', 'Link Technology', 'Jazz', 'SCO', 'PTCL', 'Telenor', 'Ufone', 'Zong'],
+      techPartners: [
+        { name: 'HP', logo: 'assets/logo/partners/bp-hp.png' },
+        { name: 'Dell', logo: 'assets/logo/partners/bp-dell.png' },
+        { name: 'Dialogic', logo: 'assets/logo/partners/bp-dialogic.png' },
+        { name: 'Cisco', logo: 'assets/logo/partners/bp-cisco.png' },
+        { name: 'Fortinet', logo: 'assets/logo/partners/bp-fortinet.png' },
+        { name: 'Huawei', logo: 'assets/logo/partners/bp-huawei.png' },
+        { name: 'Dinstar', logo: 'assets/logo/partners/bp-dinstar.png' }
+      ],
+      bizPartners: [
+        { name: 'ADG', logo: 'assets/logo/partners/ADG-logo.png' },
+        { name: 'Link Technology', logo: 'assets/logo/partners/lt-logo.png' },
+        { name: 'Jazz', logo: 'assets/logo/partners/jazz-logo.png' },
+        { name: 'SCO', logo: 'assets/logo/partners/sco.png' },
+        { name: 'PTCL', logo: 'assets/logo/partners/ptcl-logo.png' },
+        { name: 'Telenor', logo: 'assets/logo/partners/telenor-logo.png' },
+        { name: 'Ufone', logo: 'assets/logo/partners/ufone-logo.png' },
+        { name: 'Zong', logo: 'assets/logo/partners/zong-logo.png' }
+      ],
       aboutCaps: ['Fiber Optic Network', 'Voice Services', 'Fiber Optic Connectivity', 'Network Expansion', 'SMS Gateway', 'Fiber Infrastructure Upgrades'],
       fibreFeatures: ['Premium-class ASR, ACD & PDD', 'Redundant upstream links', 'Active backup architecture', 'Class 4 architecture', '24×7 NOC support', 'Network security via NGFW']
     };
