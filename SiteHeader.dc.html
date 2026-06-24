@@ -30,6 +30,7 @@
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="margin-left:-1px;"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
             </button>
             <sc-if value="{{ companiesOpen }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute; top:100%; left:50%; transform:translateX(-50%); width:236px; height:14px; z-index:60;"></div>
               <div style="position:absolute; top:calc(100% + 12px); left:50%; transform:translateX(-50%); min-width:236px; background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:14px; box-shadow:0 12px 28px rgba(20,32,27,0.10), 0 4px 10px rgba(20,32,27,0.06); padding:8px; z-index:60;">
                 <div style="position:absolute; top:-6px; left:50%; transform:translateX(-50%) rotate(45deg); width:12px; height:12px; background:var(--surface-card); border-left:1px solid var(--border-subtle); border-top:1px solid var(--border-subtle);"></div>
                 <a href="LinkTechnology.dc.html" style="display:flex; align-items:center; gap:12px; padding:11px 12px; border-radius:10px; text-decoration:none;" style-hover="{{ dropHover }}">
@@ -101,7 +102,7 @@ class Component extends DCLogic {
     this._onResize = () => this.setState({ w: window.innerWidth });
     window.addEventListener('resize', this._onResize);
   }
-  componentWillUnmount() { window.removeEventListener('resize', this._onResize); }
+  componentWillUnmount() { window.removeEventListener('resize', this._onResize); if (this._closeTimer) clearTimeout(this._closeTimer); }
   navStyle(active) {
     return {
       display: 'inline-flex', alignItems: 'center', gap: '6px',
@@ -140,9 +141,9 @@ class Component extends DCLogic {
       companiesOpen: this.state.companiesOpen && !isMobile,
       burgerPath: this.state.mobileOpen ? 'M6 6l12 12M18 6L6 18' : 'M4 7h16M4 12h16M4 17h16',
       toggleMobile: () => this.setState(s => ({ mobileOpen: !s.mobileOpen })),
-      openCompanies: () => this.setState({ companiesOpen: true }),
-      closeCompanies: () => this.setState({ companiesOpen: false }),
-      toggleCompanies: () => this.setState(s => ({ companiesOpen: !s.companiesOpen })),
+      openCompanies: () => { if (this._closeTimer) { clearTimeout(this._closeTimer); this._closeTimer = null; } this.setState({ companiesOpen: true }); },
+      closeCompanies: () => { if (this._closeTimer) clearTimeout(this._closeTimer); this._closeTimer = setTimeout(() => { this._closeTimer = null; this.setState({ companiesOpen: false }); }, 280); },
+      toggleCompanies: () => { if (this._closeTimer) { clearTimeout(this._closeTimer); this._closeTimer = null; } this.setState(s => ({ companiesOpen: !s.companiesOpen })); },
       leftItems: [this.item('Home', 'index.html', 'home'), this.item('About', 'About.dc.html', 'about'), this.item('Services', 'Services.dc.html', 'services')],
       rightItems: [this.item('Careers', 'Careers.dc.html', 'careers'), this.item('Contact', 'Contact.dc.html', 'contact')],
       mobileTop: [this.item('Home', 'index.html', 'home'), this.item('About', 'About.dc.html', 'about'), this.item('Services', 'Services.dc.html', 'services')],
