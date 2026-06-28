@@ -985,6 +985,9 @@
     }
     return cur;
   }
+  // NOTE: Babel is only loaded when an x-import references a .jsx/.tsx file.
+  // This project has NO such imports, so Babel is never fetched at runtime.
+  // The URL is kept for completeness but is effectively dead code.
   var BABEL_URL = "https://unpkg.com/@babel/standalone@7.26.4/babel.min.js";
   var GLOBAL_POLL_INTERVAL_MS = 50;
   var GLOBAL_POLL_TIMEOUT_MS = 3e4;
@@ -1420,10 +1423,10 @@
   }
 
   // src/index.ts
-  var REACT_URL = "https://unpkg.com/react@18.3.1/umd/react.production.min.js";
-  var REACT_SRI = "sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z";
-  var REACT_DOM_URL = "https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js";
-  var REACT_DOM_SRI = "sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1";
+  var REACT_URL = "./assets/vendor/react.production.min.js";
+  var REACT_SRI = "";
+  var REACT_DOM_URL = "./assets/vendor/react-dom.production.min.js";
+  var REACT_DOM_SRI = "";
   function hideRawTemplate() {
     const s = document.createElement("style");
     s.textContent = "x-dc{display:none!important}";
@@ -1434,8 +1437,10 @@
       //! nosemgrep: create-script-element
       const s = document.createElement("script");
       s.src = src;
-      s.integrity = integrity;
-      s.crossOrigin = "anonymous";
+      if (integrity) {
+        s.integrity = integrity;
+        s.crossOrigin = "anonymous";
+      }
       s.async = false;
       s.onload = () => resolve2();
       s.onerror = () => reject(new Error(`failed to load ${src}`));
