@@ -24,3 +24,24 @@
     to   { opacity: 1; }
   }
 }
+
+/* ============================================================
+   WCAG 2.3.3 / 2.2.2 — global reduced-motion floor.
+   !important in a stylesheet outranks an inline style="" attribute,
+   so this also neutralises the inline hero cross-fade and the
+   transitions this runtime injects from JS. It cannot stop a
+   setInterval or a requestAnimationFrame loop — those are guarded
+   separately in each component's script block.
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0s !important;
+    transition-duration: 0.001ms !important;
+    transition-delay: 0s !important;
+    scroll-behavior: auto !important;
+  }
+}

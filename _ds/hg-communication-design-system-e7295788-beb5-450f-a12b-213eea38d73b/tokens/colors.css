@@ -44,6 +44,17 @@
   --color-brand:           var(--green-500);
   --color-brand-hover:     var(--green-600);
   --color-brand-press:     var(--green-700);
+  /* Text-safe brand green. #00A850 is only 3.13:1 on white and can never
+     reach 4.5:1 in either direction — contrast is symmetric — so it must
+     not be used for text, nor as a fill behind a white label. Use this
+     alias instead: 5.75:1 on white, 5.23:1 on --green-50.
+     [WCAG 1.4.3 — Sep Plan PTA, Decision 2] */
+  --color-brand-text:      var(--green-700);   /* #00763B */
+  /* Brand fill for a white label ON the inverse surface. #00763B satisfies
+     1.4.3 for the label (5.75:1) but drops the button/footer edge to 2.69:1,
+     below the 1.4.11 3:1 floor. #008542 is the only tone that clears BOTH:
+     4.74:1 under a white label and 3.26:1 against --surface-inverse. */
+  --color-brand-on-dark:   #008542;
   --color-brand-ink:       var(--green-950);   /* top-level headings */
   --color-brand-subtle:    var(--green-50);    /* tinted surfaces */
   --color-on-brand:        #FFFFFF;
@@ -52,8 +63,8 @@
   --text-strong:  var(--green-950);   /* H1 / hero — brand ink green */
   --text-heading: var(--neutral-900); /* H2–H6 */
   --text-body:    var(--neutral-700);
-  --text-muted:   var(--neutral-500);
-  --text-faint:   var(--neutral-400);
+  --text-muted:   #5E6D66;            /* 5.45:1 on white — neutral-500 missed AA at 4.46:1 */
+  --text-faint:   #616F68;            /* 5.27:1 on white — neutral-400 was 2.79:1 */
   --text-on-dark: rgba(255,255,255,0.92);
   --text-on-dark-muted: rgba(255,255,255,0.66);
   --text-link:    var(--green-700);
@@ -66,12 +77,22 @@
   --surface-brand:     var(--green-500);   /* brand-filled blocks */
   --surface-brand-deep:var(--green-800);
 
-  /* Borders & lines */
-  --border-subtle: var(--neutral-200);
-  --border-default:var(--neutral-300);
-  --border-strong: var(--neutral-400);
-  --border-brand:  var(--green-500);
-  --ring-brand:    rgba(0,168,80,0.35);   /* focus ring */
+  /* Borders & lines
+     --border-subtle keeps its decorative value. WCAG 1.4.11 requires 3:1
+     only for boundaries that convey state or delimit a control, so purely
+     ornamental card hairlines are exempt. Anything that bounds an
+     interactive element must use --border-interactive.
+     [Sep Plan PTA, Decision 3 — Option B] */
+  --border-subtle:      var(--neutral-200);   /* decorative hairlines ONLY */
+  --border-interactive: #7F8D85;              /* 3.47:1 on white — controls & their containers */
+  --border-default:     #7F8D85;              /* 3.47:1 — neutral-300 was 1.85:1 */
+  --border-strong:      #616F68;              /* 5.27:1 on white */
+  --border-brand:       var(--green-500);
+  /* Opaque. At 35% alpha this composited to 1.49:1 and was effectively
+     invisible; raising the alpha cannot rescue it, since rgba(0,168,80,1)
+     is still only 3.13:1. */
+  --ring-brand:         #00763B;              /* 5.75:1 on white */
+  --ring-on-dark:       #56D08F;              /* 7.95:1 on --surface-inverse */
 
   /* Status */
   --color-success:    var(--green-600);

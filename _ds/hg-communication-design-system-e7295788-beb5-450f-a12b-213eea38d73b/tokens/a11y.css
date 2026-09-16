@@ -1,0 +1,90 @@
+/* ============================================================
+   HG Telecommunication — Accessibility primitives
+   Focus indication, skip link and screen-reader utilities.
+   Loaded last so its focus rules win over component styles.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   WCAG 2.4.7 Focus Visible / 1.4.11 Non-text Contrast.
+   Before this rule :focus-visible appeared nowhere in the
+   codebase: the six form fields set outline:none and replaced it
+   with a ring measuring 1.49:1, and every other control relied on
+   the unauthored browser default.
+   3px #00763B is 5.75:1 on white — comfortably past the 3:1 floor.
+   ------------------------------------------------------------ */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--ring-brand);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* On the inverse (near-black green) footer and CTA bands the same
+   green would sit at 1.9:1. --ring-on-dark is 7.95:1 there. */
+.hg-on-dark a:focus-visible,
+.hg-on-dark button:focus-visible,
+.hg-on-dark input:focus-visible,
+.hg-on-dark textarea:focus-visible,
+.hg-on-dark [tabindex]:focus-visible {
+  outline-color: var(--ring-on-dark);
+}
+
+/* Do not strip the ring for mouse users on browsers without
+   :focus-visible support — only where we have already drawn one. */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ------------------------------------------------------------
+   WCAG 2.4.1 Bypass Blocks.
+   Every page puts 10–12 header tab stops before the content.
+   ------------------------------------------------------------ */
+.hg-skip-link {
+  position: absolute;
+  left: 8px;
+  top: -200px;
+  z-index: 200;
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 0 0 10px 10px;
+  background: var(--color-brand-text);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: top var(--dur-fast) var(--ease-standard);
+}
+.hg-skip-link:focus {
+  top: 0;
+  outline: 3px solid var(--green-950);
+  outline-offset: 2px;
+}
+
+/* ------------------------------------------------------------
+   Visually hidden, but exposed to assistive technology.
+   ------------------------------------------------------------ */
+.hg-visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* A programmatic focus target (a status panel, <main>) should not
+   draw a ring when focus was moved there by script. */
+[tabindex="-1"]:focus:not(:focus-visible) {
+  outline: none;
+}
