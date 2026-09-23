@@ -60,21 +60,28 @@
         </sc-if>
         <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
           <form onSubmit="{{ submit }}" style="display:flex; flex-direction:column; gap:16px;">
+            <input type="checkbox" name="botcheck" tabIndex="-1" autoComplete="off" aria-hidden="true" style="display:none;">
             <div>
               <label style="display:block; font-family:var(--font-heading); font-weight:600; font-size:14px; color:var(--text-heading); margin-bottom:7px;">Your name</label>
-              <input class="hg-field" type="text" placeholder="Jane Cooper" required style="width:100%; min-height:48px; padding:12px 15px; background:var(--surface-card); border:1.5px solid var(--border-default); border-radius:10px; color:var(--text-heading); font-family:var(--font-body); font-size:15px; outline:none; box-sizing:border-box;">
+              <input class="hg-field" name="name" type="text" placeholder="Jane Cooper" required style="width:100%; min-height:48px; padding:12px 15px; background:var(--surface-card); border:1.5px solid var(--border-default); border-radius:10px; color:var(--text-heading); font-family:var(--font-body); font-size:15px; outline:none; box-sizing:border-box;">
             </div>
             <div>
               <label style="display:block; font-family:var(--font-heading); font-weight:600; font-size:14px; color:var(--text-heading); margin-bottom:7px;">Email address</label>
-              <input class="hg-field" type="email" placeholder="you@company.com" required style="width:100%; min-height:48px; padding:12px 15px; background:var(--surface-card); border:1.5px solid var(--border-default); border-radius:10px; color:var(--text-heading); font-family:var(--font-body); font-size:15px; outline:none; box-sizing:border-box;">
+              <input class="hg-field" name="email" type="email" placeholder="you@company.com" required style="width:100%; min-height:48px; padding:12px 15px; background:var(--surface-card); border:1.5px solid var(--border-default); border-radius:10px; color:var(--text-heading); font-family:var(--font-body); font-size:15px; outline:none; box-sizing:border-box;">
             </div>
             <div>
               <label style="display:block; font-family:var(--font-heading); font-weight:600; font-size:14px; color:var(--text-heading); margin-bottom:7px;">Comments / questions</label>
-              <textarea class="hg-field" placeholder="How can we help?" rows="4" required style="width:100%; padding:13px 15px; background:var(--surface-card); border:1.5px solid var(--border-default); border-radius:10px; color:var(--text-heading); font-family:var(--font-body); font-size:15px; outline:none; resize:vertical; box-sizing:border-box;"></textarea>
+              <textarea class="hg-field" name="message" placeholder="How can we help?" rows="4" required style="width:100%; padding:13px 15px; background:var(--surface-card); border:1.5px solid var(--border-default); border-radius:10px; color:var(--text-heading); font-family:var(--font-body); font-size:15px; outline:none; resize:vertical; box-sizing:border-box;"></textarea>
             </div>
-            <button type="submit" style="display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:52px; padding:14px 18px; box-sizing:border-box; border-radius:10px; background:var(--color-brand-text); color:#fff; border:none; font-family:var(--font-heading); font-weight:600; font-size:16px; cursor:pointer; transition:background var(--dur-fast) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);" style-hover="{{ btnPrimaryHover }}">
-              Send message
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <sc-if value="{{ error }}" hint-placeholder-val="{{ null }}">
+              <div role="alert" style="padding:12px 15px; border-radius:10px; background:var(--color-danger-subtle, #fde8e8); border:1px solid var(--color-danger, #d92d20); color:var(--color-danger, #d92d20); font-family:var(--font-body); font-size:14px;">{{ error }}</div>
+            </sc-if>
+            <button type="submit" disabled="{{ sending }}" style="display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:52px; padding:14px 18px; box-sizing:border-box; border-radius:10px; background:var(--color-brand-text); color:#fff; border:none; font-family:var(--font-heading); font-weight:600; font-size:16px; cursor:pointer; transition:background var(--dur-fast) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard); opacity:{{ sendingOpacity }};" style-hover="{{ btnPrimaryHover }}">
+              <sc-if value="{{ sending }}" hint-placeholder-val="{{ false }}">Sending&hellip;</sc-if>
+              <sc-if value="{{ notSending }}" hint-placeholder-val="{{ true }}">
+                Send message
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </sc-if>
             </button>
           </form>
         </sc-if>
@@ -88,13 +95,45 @@
 </section>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:700}}">
+const WEB3FORMS_ACCESS_KEY = '2da5cff1-207a-4071-9f65-5c0280ea1d91';
+
 class Component extends DCLogic {
-  state = { sent: false };
+  state = { sent: false, sending: false, error: null };
+  submit = async (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    if (form.botcheck && form.botcheck.checked) return;
+    this.setState({ sending: true, error: null });
+    try {
+      const payload = Object.fromEntries(new FormData(form).entries());
+      payload.access_key = WEB3FORMS_ACCESS_KEY;
+      payload.subject = 'New enquiry from HG Telecommunication website — Contact page';
+      payload.from_name = 'HG Telecommunication Website';
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const result = await res.json();
+      if (result.success) {
+        form.reset();
+        this.setState({ sent: true, sending: false });
+      } else {
+        this.setState({ sending: false, error: result.message || 'Something went wrong. Please try again.' });
+      }
+    } catch (err) {
+      this.setState({ sending: false, error: 'Network error. Please check your connection and try again.' });
+    }
+  };
   renderVals() {
     return {
       sent: this.state.sent,
       notSent: !this.state.sent,
-      submit: (e) => { e.preventDefault(); this.setState({ sent: true }); },
+      sending: this.state.sending,
+      notSending: !this.state.sending,
+      sendingOpacity: this.state.sending ? '0.7' : '1',
+      error: this.state.error,
+      submit: this.submit,
       btnPrimaryHover: { background: 'var(--green-800)', boxShadow: 'var(--shadow-brand)' }
     };
   }

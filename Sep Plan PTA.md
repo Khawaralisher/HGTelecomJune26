@@ -604,7 +604,8 @@ Resolution: added **`--color-brand-on-dark: #008542`** to `colors.css` and appli
 
 ### Verification harness
 
-`tools/verify-a11y.js` — committed so the Phase 7 re-audit and any future session can re-run it:
+`tools/verify-a11y.js` — added to the repository so the Phase 7 re-audit and any future
+session can re-run it (committed in `6753f06`):
 
 ```
 node tools/verify-a11y.js
@@ -614,7 +615,8 @@ It recomputes every contrast ratio from first principles (WCAG relative luminanc
 
 It deliberately does **not** flag: `border-color`/`outline-color` uses of brand green (non-text, 3:1 applies and 3.13:1 clears it), square icon chips whose `color:#fff` only drives `currentColor` for an `aria-hidden` glyph, or fixed heights on square boxes. Those were all false positives in an earlier revision.
 
-**Current result: 189 passed, 0 failed, 0 to review.**
+**Result at the time this section was written: 189 passed. The harness was later extended
+to cover `/privacy-policy` and `/terms` (see 9.7) and now runs 223 checks.**
 
 Additionally validated: every `data-dc-script` logic block parses through `new Function()` (8 blocks; Careers, Contact and PageHero have none), all 8 token stylesheets have balanced braces, and `_ds_manifest.json` is still valid JSON.
 
@@ -622,8 +624,8 @@ Additionally validated: every `data-dc-script` logic block parses through `new F
 
 | Package | Status | Note |
 |---|---|---|
-| A - Document shell and landmarks | **DONE** | 7 titles + descriptions, 12 `lang`, 7 `<main>`, skip link, 2 nav landmarks, Services heading skip fixed |
-| B - Location indicator, ARIA state, SVGs | **DONE** | `aria-current` wired, breadcrumb rebuilt, both disclosures + Escape, 46 SVGs hidden. B5 CLOSED: social links restored with real URLs; Privacy Policy and Terms pages built - see 9.6, 9.7 |
+| A - Document shell and landmarks | **DONE** | 9/9 static titles + descriptions, 14/14 `lang="en"`, 9/9 `<main id="main-content">`, skip link, 2 nav landmarks, Services heading skip fixed |
+| B - Location indicator, ARIA state, SVGs | **DONE** | `aria-current` wired, breadcrumb rebuilt, both disclosures + Escape, 59/59 SVGs `aria-hidden` + `focusable="false"`. B5 CLOSED: social links restored with real URLs; Privacy Policy and Terms pages built - see 9.6, 9.7 |
 | C - Motion and reduced-motion | **DONE** | Global CSS block, JS guards, marquee wrap-fallback, 2.2.2 pause control |
 | D - Colour contrast | **DONE** | D1 tokens, D2 focus ring, D3 inline styles. D4 hero scrim narrowed. +1 token `--color-brand-on-dark` added in review |
 | E - Forms | **BLOCKED** | Decision 1 - Web3Forms, later |
@@ -631,7 +633,7 @@ Additionally validated: every `data-dc-script` logic block parses through `new F
 | G - Text spacing resilience | **DONE** | 13 controls to `min-height`, 6 cards un-clipped. G2 was a false positive - already capped |
 | H - AAA tier | NOT STARTED | Optional; recommend separate engagement |
 | I - Server hand-off | NOT STARTED | Different owner (server admin / registrar) |
-| J - Repository housekeeping | NOT STARTED | |
+| J - Repository housekeeping | **OPEN - ESCALATED** | The zip was committed in `6753f06`, so it is now in git history. See 9.8. |
 
 ## 9.4 Verification status
 
@@ -645,6 +647,11 @@ not mistaken for completed work. Nothing below has been confirmed in a real brow
 - [x] Heading outline read per page by hand; one real skip found (Services) and fixed.
 - [x] All 8 `data-dc-script` logic blocks parse through `new Function()`.
 - [x] All 8 token stylesheets brace-balanced; `_ds_manifest.json` still valid JSON.
+- [x] Served the site from a local static server reproducing `DirectoryIndex` behaviour and
+      confirmed `/privacy-policy` and `/terms` resolve (301 to the trailing slash, then 200),
+      that every URL the two new pages reference returns 200 once resolved through
+      `<base href="../">`, and that the footer legal links resolve from all nine pages that
+      render the footer. **This exercised URL resolution only - no JavaScript was executed.**
 - [ ] Full W3C HTML validator run.
 - [ ] Load each page in a browser and confirm the runtime still boots - the token and
       markup edits are not covered by any test.
@@ -669,16 +676,19 @@ not mistaken for completed work. Nothing below has been confirmed in a real brow
 2. **Package F** - two genuine images-of-text failures (`explore-voice-internet.webp`,
    `fibre-network-map.webp`) and seven incorrect or fragmentary alt texts.
 3. **Package I** - nginx header snippet, `server_tokens off;`, DNSSEC DS record.
-4. **Package J** - `HG Zip 29June26.zip` (6.8 MB, untracked, project root) contains a
-   complete `.git/` directory. Add to `.gitignore`; exclude from any deployment payload;
-   confirm the live server does not serve `.git/` at the docroot.
+4. **Package J - ESCALATED.** `HG Zip 29June26.zip` is no longer untracked: it was committed
+   in `6753f06` and is now in git history permanently. Confirmed to contain 297 `.git/`
+   entries including 255 objects. See 9.8 for the full position and the recommended sequence.
 6. ~~**Privacy and Terms pages do not exist.**~~ **RESOLVED 16 Sep 2026** - both pages were
    written and the footer links restored. See 9.7. **The copy still needs review by a
    qualified lawyer before it is relied on** - it is drafted from the company facts on this
    site plus standard Pakistani telecom-sector practice, not from legal advice.
 7. ~~**Social profile URLs do not exist anywhere in the repository.**~~ **RESOLVED 16 Sep 2026** -
    the client confirmed the accounts are active and supplied the URLs. See 9.6.
-8. **One accepted marginal pass:** the rotating hero phrase keeps `--color-brand` #00A850 at
+8. **Footer copyright still reads 2024.** Out of scope for this session and left untouched, but
+   it now sits directly beside legal pages dated 16 September 2026, which reads as neglect.
+   One-line fix in `SiteFooter.dc.html`.
+9. **One accepted marginal pass:** the rotating hero phrase keeps `--color-brand` #00A850 at
    **3.13:1**. It qualifies as WCAG large-scale text (clamp(34px,5.4vw,62px), weight 800),
    where the threshold is 3:1, so it passes - by 0.13. It is the only remaining use of
    `--color-brand` as text on the site. Moving it to `--color-brand-text` would darken the
@@ -835,3 +845,91 @@ against reality rather than assumed correct:
 
 **This is drafted copy, not legal advice, and should be reviewed by a qualified lawyer before
 the client relies on it.**
+
+## 9.8 Session 1 close-out — file manifest and repository state
+
+### Everything this session touched
+
+Committed in **`6753f06` "social + footer"** (22 files, +2095 / −579). Working tree clean at
+close of session.
+
+**New files**
+
+| File | Purpose |
+|---|---|
+| `_ds/.../tokens/a11y.css` | `:focus-visible` ring, `.hg-skip-link`, `.hg-visually-hidden`, `.hg-on-dark` |
+| `privacy-policy/index.html` | Privacy Policy, served at `/privacy-policy` |
+| `terms/index.html` | Terms & Conditions, served at `/terms` |
+| `tools/verify-a11y.js` | Static WCAG harness, 223 checks |
+
+**Modified**
+
+| File | What changed |
+|---|---|
+| `_ds/.../tokens/colors.css` | 7 token values changed, 4 tokens added (`--color-brand-text`, `--color-brand-on-dark`, `--border-interactive`, `--ring-on-dark`) |
+| `_ds/.../tokens/motion.css` | Global reduced-motion block |
+| `_ds/.../styles.css` | Imports `a11y.css` last |
+| `_ds/.../_ds_manifest.json` | Token values and `globalCssPaths` synced |
+| `index.html` | A1-A3, B4, C2-C4, D3, D4, G1 |
+| `SiteHeader.dc.html` | Skip link, nav landmarks, `aria-current`, both disclosures, D3, G1 |
+| `PageHero.dc.html` | Breadcrumb rebuilt as `nav`/`ol`, D3 |
+| `SiteFooter.dc.html` | `.hg-on-dark`, D3, G1, social links restored, legal links restored |
+| `GetInTouch.dc.html` | `aria-labelledby`, B4, D3, G1 |
+| `ImagePlaceholder.dc.html` | Design-system link added, B4, D3, caption opacity fix |
+| `About` · `Services` · `Wavecomm` · `LinkTechnology` · `Careers` · `Contact` | A1-A3, A6, B4, D3, G1-G3 |
+| `Sep Plan PTA.md` | This section 9 |
+
+### ⚠ Package J has gone from a 15-minute fix to a history problem
+
+**`HG Zip 29June26.zip` was committed in `6753f06`.** Section 5, Package J flagged this file as
+something to add to `.gitignore` *before* it entered the repository. That did not happen, and
+it is now in git history permanently.
+
+Verified by reading the archive's central directory:
+
+- 391 entries total, of which **297 are under `.git/`**
+- includes `.git/config`, `.git/HEAD`, `.git/index`, `.git/logs/HEAD`,
+  `.git/logs/refs/remotes/`, `.git/COMMIT_EDITMSG`
+- **255 `.git/objects/` entries** — a complete copy of the repository's history as it stood
+  when the archive was made
+
+So the repository now contains a compressed copy of itself, inside its own history. The local
+`.git` directory is 11 MB.
+
+**Why a later `git rm` is not sufficient.** Deleting the file in a new commit removes it from
+the working tree but leaves the blob reachable in history, so anyone who clones still gets all
+6.8 MB and everything inside it. Purging it requires rewriting history with
+`git filter-repo` (or BFG), then a force-push, and every existing clone must be re-cloned.
+
+**Recommended sequence, in this order:**
+
+1. Add `HG Zip 29June26.zip` — and a general `*.zip` rule — to `.gitignore`.
+2. Decide whether history rewriting is warranted. It is a destructive, coordinated operation:
+   it changes every commit hash from that point and breaks existing clones and any open PRs.
+   **This needs an explicit decision from the repository owner and should not be done
+   unilaterally.**
+3. Independently of the above, confirm the live server does not serve `.git/` at the docroot,
+   and confirm the archive has never been uploaded into the webroot. If
+   `hg.com.pk/HG Zip 29June26.zip` is reachable, the entire repository history is publicly
+   downloadable today — that is the urgent part, and it is unaffected by whatever is decided
+   about git history.
+4. Exclude the archive from any future deployment payload.
+
+**Status: Package J is now OPEN and higher-priority than when the plan was written.**
+
+### Where to pick up
+
+Read 9.3 for the status board. In priority order:
+
+1. **Package J** — above. Item 3 first; it is the only part with live exposure.
+2. **Package E** — Web3Forms. Still the largest outstanding item and still a Level A failure
+   (the six form controls remain programmatically unlabelled). See 9.5 item 1.
+3. **Legal review** of the two new pages (9.7), and supply the registration/licence numbers if
+   they are wanted on the page.
+4. **Package F** — images of text and the seven wrong alt texts.
+5. **Package I** — nginx headers, `server_tokens off`, DNSSEC.
+6. **Phase 7** — re-run ACRE across **10** URLs now, not 8; `/privacy-policy` and `/terms` did
+   not exist when the original audit ran.
+
+Run `node tools/verify-a11y.js` before and after any further change. It exits non-zero on
+failure, so it can gate a commit.
